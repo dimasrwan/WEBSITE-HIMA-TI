@@ -1,7 +1,11 @@
+import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      {/* Homepage content will be implemented later. */}
+    <main className="flex flex-col w-full">
+      <Hero />
+      <About />
     </main>
   );
 }

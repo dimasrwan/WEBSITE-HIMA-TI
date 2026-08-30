@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 
@@ -18,6 +19,7 @@ const NAV_ITEMS = [
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   // Handle scroll detection
   useEffect(() => {
@@ -80,23 +82,27 @@ export function Navbar() {
               priority
             />
           </div>
-          <span className="font-semibold tracking-tight text-foreground hidden sm:block">
+          <span className="font-semibold tracking-tight text-foreground hidden sm:block hover:text-primary transition-colors">
             HIMA-TI
           </span>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8">
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="nav-text focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
-            >
-              {item.label}
-            </Link>
-          ))}
-          {/* Optional Action Button (Contact/Join) if needed later. Kept out for now as instructed to keep minimal. */}
+          {NAV_ITEMS.map((item) => {
+            const isActive = pathname === item.href || pathname?.startsWith(`${item.href}/`);
+            return (
+              <Link
+                key={item.label}
+                href={item.href}
+                className={`nav-text focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
+                  isActive ? "text-primary font-semibold" : ""
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Mobile Menu Trigger */}
@@ -112,22 +118,27 @@ export function Navbar() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-background z-40 transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed inset-0 bg-background z-40 transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-center ${
           isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
         aria-hidden={!isMobileMenuOpen}
       >
-        <div className="flex flex-col items-center justify-center h-full gap-8 px-6">
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="text-3xl font-medium tracking-tight text-foreground hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
+        <div className="flex flex-col items-center justify-center gap-8 px-6">
+          {NAV_ITEMS.map((item) => {
+            const isActive = pathname === item.href || pathname?.startsWith(`${item.href}/`);
+            return (
+              <Link
+                key={item.label}
+                href={item.href}
+                className={`text-3xl font-medium tracking-tight hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
+                  isActive ? "text-primary" : "text-foreground"
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </header>
