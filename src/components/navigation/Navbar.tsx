@@ -95,11 +95,14 @@ export function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
-                className={`nav-text focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
-                  isActive ? "text-primary font-semibold" : ""
-                }`}
+                className={`group relative py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 overflow-hidden ${
+                  isActive ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+                } transition-colors duration-300`}
               >
-                {item.label}
+                <span className="relative z-10 block group-hover:translate-x-1 transition-transform duration-300 ease-out">
+                  {item.label}
+                </span>
+                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-primary scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 ease-out" />
               </Link>
             );
           })}

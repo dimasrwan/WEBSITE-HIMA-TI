@@ -7,6 +7,8 @@ import { EditorialGrid } from "@/components/layout/EditorialGrid";
 import { gsap, useGSAP } from "@/animations/gsap-setup";
 import { useReducedMotion } from "@/animations/use-reduced-motion";
 
+import { Magnetic } from "@/components/ui/Magnetic";
+
 export function Hero() {
   const containerRef = useRef<HTMLElement>(null);
   const shouldReduceMotion = useReducedMotion();
@@ -18,16 +20,23 @@ export function Hero() {
 
     // Initial state setup for animation
     gsap.set(".hero-reveal", { y: 60, opacity: 0 });
+    gsap.set(".hero-title-word", { y: "100%" });
     gsap.set(".hero-logo", { scale: 0.9, opacity: 0, rotate: -2 });
     gsap.set(".hero-line", { scaleX: 0, transformOrigin: "left center" });
 
     // Choreograph the entrance
-    tl.to(".hero-reveal", {
+    tl.to(".hero-title-word", {
+      y: "0%",
+      duration: 1.4,
+      stagger: 0.15,
+      ease: "power4.out"
+    })
+    .to(".hero-reveal", {
       y: 0,
       opacity: 1,
       duration: 1.4,
       stagger: 0.15,
-    })
+    }, "-=1.0")
     .to(".hero-line", {
       scaleX: 1,
       duration: 1.2,
@@ -50,8 +59,9 @@ export function Hero() {
           
           {/* Main Typography Header (Full Width on Grid) */}
           <div className="col-span-4 md:col-span-8 lg:col-span-12 mb-12 lg:mb-20 flex flex-col justify-end">
-             <h1 className="hero-reveal text-6xl md:text-8xl lg:text-[10rem] font-semibold tracking-tighter leading-[0.85] text-foreground uppercase">
-               HIMA-TI
+             <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-semibold tracking-tighter leading-[0.85] text-foreground uppercase flex gap-4 overflow-hidden">
+               <span className="hero-title-word block">HIMA</span>
+               <span className="hero-title-word block text-foreground-muted">-TI</span>
              </h1>
              <div className="hero-line w-full h-[1px] bg-border mt-8 md:mt-16" />
           </div>
@@ -68,11 +78,13 @@ export function Hero() {
             </div>
             
             {/* Minimalist CTA */}
-            <div className="mt-4 lg:mt-8">
-              <a href="#about" className="btn-text inline-flex items-center gap-3 group">
-                <span className="font-semibold tracking-widest uppercase text-xs text-foreground group-hover:text-primary transition-colors">Discover More</span>
-                <span className="w-10 h-[1px] bg-foreground group-hover:bg-primary transition-all duration-300 group-hover:w-16" />
-              </a>
+            <div className="mt-4 lg:mt-8 w-fit">
+              <Magnetic>
+                <a href="#about" className="btn-text inline-flex items-center gap-3 group p-4 -ml-4 rounded-full">
+                  <span className="font-semibold tracking-widest uppercase text-xs text-foreground group-hover:text-primary transition-colors">Discover More</span>
+                  <span className="w-10 h-[1px] bg-foreground group-hover:bg-primary transition-all duration-300 group-hover:w-16 group-hover:translate-x-2" />
+                </a>
+              </Magnetic>
             </div>
           </div>
 
