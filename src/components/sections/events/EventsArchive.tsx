@@ -63,7 +63,7 @@ export function EventsArchive() {
     <Section ref={containerRef} className="py-8 md:py-16">
       <Container>
         <div className="flex flex-col">
-          {EVENT_DATA.length > 0 ? EVENT_DATA.map((evt, index) => (
+          {EVENT_DATA.length > 0 ? EVENT_DATA.map((evt) => (
             <div 
               key={evt.id} 
               className="group relative flex flex-col md:flex-row evt-reveal pb-16 md:pb-28 last:pb-8"
