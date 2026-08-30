@@ -1,26 +1,116 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Color System */
+  --color-background: #050505;
+  --color-surface: #0D0D0D;
+  --color-surface-elevated: #151515;
+  
+  --color-primary: #F7931E;
+  --color-primary-light: #FFB13B;
+  --color-primary-dark: #C66A18;
+  
+  --color-foreground: #F5F5F5;
+  --color-foreground-muted: #A1A1A1;
+  --color-border: #262626;
+
+  /* Typography */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  /* Global Browser Styling */
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    overflow-x: hidden;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  ::selection {
+    @apply bg-primary/30 text-foreground;
+  }
+
+  /* Typography Hierarchy */
+  h1, .display-heading {
+    @apply text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-tight text-foreground;
+  }
+
+  h2 {
+    @apply text-4xl md:text-5xl font-medium tracking-tight leading-tight text-foreground;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl font-medium tracking-normal leading-snug text-foreground;
+  }
+
+  p, .body-text {
+    @apply text-base md:text-lg leading-relaxed text-foreground-muted;
+  }
+
+  .small-text {
+    @apply text-sm leading-normal text-foreground-muted;
+  }
+
+  .label-text {
+    @apply text-xs font-semibold tracking-widest uppercase text-foreground-muted;
+  }
+
+  .nav-text {
+    @apply text-sm font-medium tracking-wide text-foreground transition-colors hover:text-primary;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Container System */
+  .container-global {
+    @apply w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-24;
+  }
+
+  /* Grid System Foundation */
+  .grid-editorial {
+    @apply grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-4 md:gap-6;
+  }
+
+  /* Button Foundation */
+  .btn-base, .btn-primary, .btn-secondary, .btn-text {
+    @apply inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 disabled:opacity-50 disabled:pointer-events-none;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-[#050505] hover:bg-primary-light px-8 py-4 rounded-none;
+  }
+
+  .btn-secondary {
+    @apply bg-surface border border-border text-foreground hover:bg-surface-elevated hover:border-foreground-muted px-8 py-4 rounded-none;
+  }
+
+  .btn-text {
+    @apply text-foreground hover:text-primary px-0 py-2;
+  }
+
+  /* Link & Interaction Foundation */
+  .link-base {
+    @apply text-foreground underline decoration-border underline-offset-4 hover:decoration-primary transition-colors duration-200;
+  }
 }
+
+/* Lenis smooth scrolling base styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
