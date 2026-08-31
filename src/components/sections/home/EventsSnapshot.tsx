@@ -6,6 +6,7 @@ import { Container } from "@/components/layout/Container";
 import { EditorialGrid } from "@/components/layout/EditorialGrid";
 import { gsap, useGSAP } from "@/animations/gsap-setup";
 import { useReducedMotion } from "@/animations/use-reduced-motion";
+import { events } from "@/data";
 
 export function EventsSnapshot() {
   const containerRef = useRef<HTMLElement>(null);
@@ -52,14 +53,14 @@ export function EventsSnapshot() {
              <div className="absolute top-0 bottom-0 left-[2.5rem] md:left-[8rem] w-[1px] bg-border hidden md:block" />
              
              <div className="flex flex-col gap-16 md:gap-24">
-               {[1, 2].map((item) => (
-                 <div key={item} className="home-evt-reveal group relative flex flex-col md:flex-row gap-6 md:gap-24 cursor-not-allowed">
+               {events.slice(0, 2).map((item) => (
+                 <div key={item.id} className="home-evt-reveal group relative flex flex-col md:flex-row gap-6 md:gap-24 cursor-pointer">
                    <div className="flex flex-col md:w-32 flex-shrink-0 relative z-10 md:bg-background">
                      <span className="text-5xl md:text-7xl font-bold tracking-tighter leading-none text-foreground group-hover:text-primary transition-colors duration-500">
-                       TBA
+                       {item.date.split(' ')[0]}
                      </span>
                      <span className="text-xs font-bold tracking-widest uppercase text-foreground-muted mt-2">
-                       2026
+                       {item.date.split(' ').slice(1).join(' ')}
                      </span>
                    </div>
 
@@ -67,13 +68,13 @@ export function EventsSnapshot() {
 
                    <div className="flex flex-col gap-4 z-10 md:pt-4">
                      <span className="text-xs font-bold tracking-widest uppercase border border-border px-3 py-1 w-fit bg-background text-foreground-muted group-hover:border-primary/50 transition-colors duration-300">
-                       EVENT ARCHIVE
+                       {item.category}
                      </span>
                      <h3 className="text-2xl md:text-4xl font-medium tracking-tight text-foreground group-hover:translate-x-2 transition-transform duration-500 ease-out">
-                       Timeline Record Pending
+                       {item.title}
                      </h3>
                      <p className="body-text text-foreground-muted max-w-lg leading-relaxed">
-                       Future chronological entries and institutional event archives will populate this space.
+                       {item.excerpt}
                      </p>
                    </div>
                  </div>

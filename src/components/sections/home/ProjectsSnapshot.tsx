@@ -6,6 +6,7 @@ import { Container } from "@/components/layout/Container";
 import { EditorialGrid } from "@/components/layout/EditorialGrid";
 import { gsap, useGSAP } from "@/animations/gsap-setup";
 import { useReducedMotion } from "@/animations/use-reduced-motion";
+import { projects } from "@/data";
 
 export function ProjectsSnapshot() {
   const containerRef = useRef<HTMLElement>(null);
@@ -50,36 +51,33 @@ export function ProjectsSnapshot() {
 
           <div className="col-span-4 md:col-span-12 lg:col-span-9 flex flex-col gap-12">
              
-             <div className="home-proj-reveal group flex flex-col cursor-not-allowed">
+             <div className="home-proj-reveal group flex flex-col cursor-pointer">
                
                <div className="w-full aspect-square md:aspect-[21/9] bg-background border border-border flex items-center justify-center relative overflow-hidden group-hover:border-primary/50 transition-colors duration-500">
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-                     <div className="text-[8rem] md:text-[20rem] font-bold text-foreground/5 tracking-tighter leading-none select-none group-hover:scale-110 transition-transform duration-1000 ease-out origin-center">
-                       PENDING
-                     </div>
-                  </div>
+                  {/* Image Placeholder */}
+                  <div className="absolute inset-0 bg-surface grayscale group-hover:grayscale-0 transition-all duration-700" style={{ backgroundImage: `url(${projects[0].image})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
 
                   {/* Accent corners */}
-                  <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                  <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                  <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                  <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
                </div>
                
                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mt-8 gap-6">
                  <div className="flex flex-col gap-3">
                    <h3 className="text-3xl md:text-5xl font-medium tracking-tight text-foreground group-hover:text-primary transition-colors duration-500">
-                     Institutional Showcase
+                     {projects[0].title}
                    </h3>
                    <span className="text-xs font-bold tracking-widest uppercase text-foreground-muted">
-                     PROJECT DATA PENDING
+                     {projects[0].category} — {projects[0].year}
                    </span>
                  </div>
                  
                  <div className="flex items-center gap-3">
                    <span className="w-2 h-2 rounded-full bg-border group-hover:bg-primary transition-colors duration-300" />
                    <span className="text-xs font-bold tracking-widest uppercase text-foreground-muted group-hover:text-primary transition-colors duration-300">
-                     SYSTEM ARCHITECTURE
+                     {projects[0].technologies[0]}
                    </span>
                  </div>
                </div>

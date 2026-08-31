@@ -6,31 +6,8 @@ import { Section } from "@/components/layout/Section";
 import { gsap, useGSAP } from "@/animations/gsap-setup";
 import { useReducedMotion } from "@/animations/use-reduced-motion";
 
-type EventItem = {
-  id: string;
-  title: string;
-  date?: string;
-  month?: string;
-  time?: string;
-  location?: string;
-  category?: string;
-  description?: string;
-  status?: "active" | "upcoming" | "completed" | "pending";
-};
-
-// Static Data - Conceptual mapping without fake claims
-const EVENT_DATA: EventItem[] = [
-  {
-    id: "e1",
-    title: "Event Calendar Synchronization",
-    date: "TBA",
-    month: "2026",
-    location: "UIN Ar-Raniry",
-    category: "System Update",
-    description: "Official event schedules, academic seminars, and organizational activities will appear here once the official calendar is released.",
-    status: "pending"
-  }
-];
+import { events } from "@/data";
+import Link from "next/link";
 
 export function EventsArchive() {
   const containerRef = useRef<HTMLElement>(null);
@@ -63,18 +40,19 @@ export function EventsArchive() {
     <Section ref={containerRef} className="py-8 md:py-16">
       <Container>
         <div className="flex flex-col">
-          {EVENT_DATA.length > 0 ? EVENT_DATA.map((evt) => (
-            <div 
+          {events.length > 0 ? events.map((evt) => (
+            <Link 
+              href={`/events/${evt.slug}`}
               key={evt.id} 
-              className="group relative flex flex-col md:flex-row evt-reveal pb-16 md:pb-28 last:pb-8"
+              className="group relative flex flex-col md:flex-row evt-reveal pb-16 md:pb-28 last:pb-8 cursor-pointer block"
             >
                {/* Date Column (Massive Typography) */}
                <div className="w-full md:w-32 lg:w-48 flex flex-col mb-8 md:mb-0 md:pt-2">
                   <span className="text-5xl lg:text-[5rem] font-bold tracking-tighter leading-none text-foreground group-hover:text-primary transition-colors duration-500">
-                    {evt.date}
+                    {evt.date.split(' ')[0]}
                   </span>
                   <span className="text-sm md:text-base font-semibold tracking-widest uppercase text-foreground-muted mt-2 md:mt-4">
-                    {evt.month}
+                    {evt.date.split(' ').slice(1).join(' ')}
                   </span>
                </div>
                
@@ -124,13 +102,13 @@ export function EventsArchive() {
                     {/* Hover CTA Indicator */}
                     <div className="mt-4 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 hidden md:block">
                       <span className="text-xs font-bold tracking-widest uppercase text-primary flex items-center gap-4">
-                        Pending Details <span className="w-8 h-[1px] bg-primary" />
+                        Read Details <span className="w-8 h-[1px] bg-primary" />
                       </span>
                     </div>
                   </div>
 
                </div>
-            </div>
+            </Link>
           )) : (
              <div className="py-24 text-center evt-reveal border-b border-border">
                 <span className="text-primary text-sm uppercase tracking-widest font-bold">No Event Data</span>

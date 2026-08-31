@@ -6,29 +6,8 @@ import { Section } from "@/components/layout/Section";
 import { gsap, useGSAP } from "@/animations/gsap-setup";
 import { useReducedMotion } from "@/animations/use-reduced-motion";
 
-type Project = {
-  id: string;
-  title: string;
-  category?: string;
-  description?: string;
-  year?: string;
-  technologies?: string[];
-  image?: string;
-  href?: string;
-  repository?: string;
-};
-
-// Static Data - Conceptual mapping without fake claims
-const PROJECT_DATA: Project[] = [
-  {
-    id: "01",
-    title: "Institutional Digital Infrastructure",
-    category: "System architecture",
-    description: "Official organizational platforms, member portals, and internal tools will be showcased here upon public deployment.",
-    year: "2026",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
-  }
-];
+import { projects } from "@/data";
+import Link from "next/link";
 
 export function ProjectsShowcase() {
   const containerRef = useRef<HTMLElement>(null);
@@ -61,17 +40,18 @@ export function ProjectsShowcase() {
     <Section ref={containerRef} className="py-16 md:py-32 bg-background">
       <Container>
         <div className="flex flex-col gap-32 md:gap-48">
-          {PROJECT_DATA.length > 0 ? PROJECT_DATA.map((proj) => (
-            <div 
+          {projects.length > 0 ? projects.map((proj, index) => (
+            <Link 
+              href={`/projects/${proj.slug}`}
               key={proj.id} 
-              className="group flex flex-col proj-reveal"
+              className="group flex flex-col proj-reveal cursor-pointer block"
             >
                {/* Header Area */}
                <div className="flex flex-col md:flex-row justify-between md:items-end gap-8 mb-10 md:mb-16">
                  
                  <div className="flex flex-col md:flex-row md:items-end gap-4 md:gap-8 lg:gap-16">
                     <span className="text-5xl md:text-6xl lg:text-[6rem] leading-none font-bold tracking-tighter text-foreground group-hover:text-primary transition-colors duration-500">
-                      {proj.id}
+                      0{index + 1}
                     </span>
                     
                     <div className="flex flex-col gap-4">
@@ -79,7 +59,7 @@ export function ProjectsShowcase() {
                          {proj.title}
                        </h2>
                        <p className="body-text text-foreground-muted max-w-xl leading-relaxed">
-                         {proj.description}
+                         {proj.excerpt}
                        </p>
                     </div>
                  </div>
@@ -103,8 +83,7 @@ export function ProjectsShowcase() {
                {/* Large Visual Area (Typography driven empty state) */}
                <div className="w-full aspect-[4/3] md:aspect-[21/9] bg-surface border border-border flex items-center justify-center relative overflow-hidden group-hover:border-primary/50 transition-colors duration-500">
                   {proj.image ? (
-                    // Placeholder for future next/image
-                    <div className="w-full h-full bg-surface-elevated" />
+                    <div className="absolute inset-0 bg-surface grayscale group-hover:grayscale-0 transition-all duration-700" style={{ backgroundImage: `url(${proj.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
                   ) : (
                     // Typographic Geometric Pattern for empty state
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
@@ -115,10 +94,10 @@ export function ProjectsShowcase() {
                   )}
 
                   {/* Corner Accents - Reveal on hover */}
-                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
                </div>
                
                {/* Bottom Info & Tech Stack */}
@@ -132,16 +111,23 @@ export function ProjectsShowcase() {
                   </div>
 
                   <div className="flex items-center gap-8">
-                    <span className="text-xs font-bold tracking-widest uppercase text-foreground-muted/50 cursor-not-allowed">
-                      REPOSITORY
-                    </span>
-                    <span className="text-xs font-bold tracking-widest uppercase text-foreground-muted/50 cursor-not-allowed">
-                      LIVE SITE
+                    {proj.repository && (
+                      <span className="text-xs font-bold tracking-widest uppercase text-foreground-muted/50 group-hover:text-foreground transition-colors">
+                        REPOSITORY
+                      </span>
+                    )}
+                    {proj.demo && (
+                      <span className="text-xs font-bold tracking-widest uppercase text-foreground-muted/50 group-hover:text-foreground transition-colors">
+                        LIVE SITE
+                      </span>
+                    )}
+                    <span className="text-xs font-bold tracking-widest uppercase text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-2">
+                      VIEW PROJECT <span className="w-4 h-[1px] bg-primary" />
                     </span>
                   </div>
                </div>
 
-            </div>
+            </Link>
           )) : (
              <div className="py-24 text-center proj-reveal border-b border-border">
                 <span className="text-primary text-sm uppercase tracking-widest font-bold">No Project Data</span>

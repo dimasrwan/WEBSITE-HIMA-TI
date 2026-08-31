@@ -6,6 +6,7 @@ import { Container } from "@/components/layout/Container";
 import { EditorialGrid } from "@/components/layout/EditorialGrid";
 import { gsap, useGSAP } from "@/animations/gsap-setup";
 import { useReducedMotion } from "@/animations/use-reduced-motion";
+import { programs } from "@/data";
 
 export function ProgramsSnapshot() {
   const containerRef = useRef<HTMLElement>(null);
@@ -51,18 +52,18 @@ export function ProgramsSnapshot() {
           <div className="col-span-4 md:col-span-12 lg:col-span-9 flex flex-col">
              
              <div className="flex flex-col border-t border-border">
-               {[1, 2, 3].map((item) => (
-                 <div key={item} className="home-prog-reveal group flex flex-col md:flex-row md:items-center justify-between gap-6 py-10 border-b border-border cursor-not-allowed relative">
+               {programs.slice(0, 3).map((item, index) => (
+                 <div key={item.id} className="home-prog-reveal group flex flex-col md:flex-row md:items-center justify-between gap-6 py-10 border-b border-border cursor-pointer relative">
                    <div className="flex items-start md:items-center gap-6 md:gap-12">
                      <span className="text-foreground-muted/40 font-mono text-sm tracking-widest group-hover:text-primary/50 transition-colors duration-300">
-                       0{item}
+                       0{index + 1}
                      </span>
                      <h3 className="text-2xl md:text-4xl font-medium tracking-tight text-foreground group-hover:text-primary transition-colors duration-300">
-                       Program Information Pending
+                       {item.title}
                      </h3>
                    </div>
                    <div className="flex items-center gap-4 text-xs font-bold tracking-widest uppercase text-foreground-muted">
-                     <span>Awaiting Data</span>
+                     <span>{item.category}</span>
                      <span className="w-2 h-2 rounded-full bg-border group-hover:bg-primary transition-colors duration-300" />
                    </div>
                    <div className="absolute bottom-[-1px] left-0 w-full h-[1px] bg-primary scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 ease-out" />
