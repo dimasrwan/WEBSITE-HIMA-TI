@@ -1,67 +1,46 @@
 "use client";
 
-import { useRef } from "react";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
-import { gsap, useGSAP } from "@/animations/gsap-setup";
-import { useReducedMotion } from "@/animations/use-reduced-motion";
-
+import { EditorialGrid } from "@/components/layout/EditorialGrid";
+import { Reveal } from "@/components/motion/Reveal";
+import { LineReveal } from "@/components/motion/LineReveal";
 import { Magnetic } from "@/components/motion/Magnetic";
 
 export function HomeCTA() {
-  const containerRef = useRef<HTMLElement>(null);
-  const shouldReduceMotion = useReducedMotion();
-
-  useGSAP(() => {
-    if (shouldReduceMotion) return;
-    
-    gsap.fromTo(".home-cta-reveal",
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.4,
-        stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        }
-      }
-    );
-
-  }, { scope: containerRef, dependencies: [shouldReduceMotion] });
-
   return (
-    <section ref={containerRef} className="py-32 md:py-48 bg-surface">
-      <Container className="flex flex-col items-center text-center">
+    <section className="py-24 md:py-48 bg-foreground text-background overflow-hidden relative">
+      <Container className="relative z-10">
+        <EditorialGrid>
+          <div className="col-span-4 md:col-span-12 lg:col-span-8 flex flex-col gap-8">
+            <Reveal variant="fade-up">
+              <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter uppercase leading-none text-background">
+                Ready to<br />
+                <span className="text-primary">Collaborate?</span>
+              </h2>
+            </Reveal>
+            <Reveal variant="fade-up" delay={0.2}>
+              <p className="text-xl md:text-2xl text-background/70 max-w-xl">
+                Jadilah bagian dari ekosistem digital kami. Temukan potensi Anda melalui riset, teknologi, dan kontribusi sosial.
+              </p>
+            </Reveal>
+          </div>
+
+          <div className="col-span-4 md:col-span-12 lg:col-span-4 mt-16 lg:mt-0 flex flex-col justify-end lg:items-end">
+            <Reveal variant="fade-up" delay={0.4}>
+              <Magnetic>
+                <Link 
+                  href="/about"
+                  className="inline-flex items-center justify-center w-40 h-40 md:w-48 md:h-48 rounded-full bg-primary text-primary-foreground font-bold tracking-widest text-sm uppercase hover:bg-white hover:text-black transition-colors duration-500"
+                >
+                  Join Us
+                </Link>
+              </Magnetic>
+            </Reveal>
+          </div>
+        </EditorialGrid>
         
-        <div className="flex items-center gap-4 home-cta-reveal mb-8 md:mb-12">
-           <span className="w-2 h-2 bg-primary rounded-full block" />
-           <span className="text-primary font-bold tracking-widest text-xs uppercase">
-             Join The Movement
-           </span>
-           <span className="w-2 h-2 bg-primary rounded-full block" />
-        </div>
-
-        <h2 className="text-5xl md:text-7xl lg:text-[7rem] font-bold tracking-tighter leading-[0.9] text-foreground max-w-4xl home-cta-reveal">
-          SHAPING THE FUTURE <span className="text-foreground-muted">OF TECHNOLOGY.</span>
-        </h2>
-
-        <div className="home-cta-reveal mt-16 md:mt-24">
-          <Magnetic>
-            <Link 
-              href="/about" 
-              className="group flex flex-col items-center gap-6 cursor-pointer"
-            >
-              <span className="text-sm font-bold tracking-widest uppercase text-foreground group-hover:text-primary transition-colors duration-300">
-                Discover Our Identity
-              </span>
-              <div className="w-px h-16 bg-border group-hover:h-24 group-hover:bg-primary transition-all duration-500 ease-out" />
-            </Link>
-          </Magnetic>
-        </div>
+        <LineReveal direction="center" delay={0.6} className="mt-24 md:mt-32 opacity-20 bg-background" />
 
       </Container>
     </section>
