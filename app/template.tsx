@@ -9,20 +9,16 @@ export default function Template({ children }: { children: React.ReactNode }) {
   const shouldReduceMotion = useReducedMotion();
 
   useGSAP(() => {
-    if (shouldReduceMotion) {
-      gsap.set(containerRef.current, { opacity: 1 });
-      return;
-    }
-    
-    // Page Entrance
-    gsap.fromTo(containerRef.current, 
-      { opacity: 0 },
-      { opacity: 1, duration: 0.8, ease: "power3.out" }
-    );
+    // Page Entrance - Animates from 0 if JS runs, otherwise stays visible (default CSS)
+    gsap.from(containerRef.current, {
+      opacity: 0, 
+      duration: 0.8, 
+      ease: "power3.out" 
+    });
   }, { scope: containerRef, dependencies: [shouldReduceMotion] });
 
   return (
-    <div ref={containerRef} className="opacity-0 min-h-screen flex flex-col">
+    <div ref={containerRef} className="min-h-screen flex flex-col">
       {children}
     </div>
   );

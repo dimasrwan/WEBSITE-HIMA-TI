@@ -30,23 +30,21 @@ export function LineReveal({
     if (direction === "right") origin = "right";
     if (direction === "center") origin = "center";
 
-    gsap.fromTo(lineRef.current,
-      { scaleX: 0, transformOrigin: origin },
-      {
-        scaleX: 1,
-        duration,
-        delay,
-        ease: "power4.inOut",
-        scrollTrigger: {
-          trigger: lineRef.current,
-          start: "top 90%",
-          toggleActions: "play none none reverse",
-        }
+    gsap.from(lineRef.current, {
+      scaleX: 0,
+      transformOrigin: origin,
+      duration,
+      delay,
+      ease: "power4.inOut",
+      scrollTrigger: {
+        trigger: lineRef.current,
+        start: "top 90%",
+        toggleActions: "play none none reverse",
       }
-    );
+    });
   }, { scope: lineRef, dependencies: [shouldReduceMotion, direction, delay, duration] });
 
   return (
-    <div ref={lineRef} className={`w-full bg-border origin-${direction} ${className}`} />
+    <div ref={lineRef} className={`w-full h-px bg-border origin-${direction} ${className}`} />
   );
 }

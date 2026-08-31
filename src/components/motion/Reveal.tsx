@@ -27,27 +27,27 @@ export function Reveal({
   useGSAP(() => {
     if (shouldReduceMotion) return;
     
-    const fromState: gsap.TweenVars = { opacity: 0 };
-    const toState: gsap.TweenVars = { opacity: 1, duration, delay, ease: "power3.out" };
+    const fromState: gsap.TweenVars = { 
+      opacity: 0,
+      duration,
+      delay,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 85%",
+        toggleActions: "play none none reverse",
+      }
+    };
 
     if (variant === "fade-up") {
       fromState.y = yOffset;
-      toState.y = 0;
     } else if (variant === "scale-up") {
       fromState.y = yOffset;
       fromState.scale = 0.95;
-      toState.y = 0;
-      toState.scale = 1;
-      toState.ease = "power4.out";
+      fromState.ease = "power4.out";
     }
 
-    toState.scrollTrigger = {
-      trigger: containerRef.current,
-      start: "top 85%",
-      toggleActions: "play none none reverse",
-    };
-    
-    gsap.fromTo(containerRef.current, fromState, toState);
+    gsap.from(containerRef.current, fromState);
 
   }, { scope: containerRef, dependencies: [shouldReduceMotion, variant, yOffset, delay, duration] });
 

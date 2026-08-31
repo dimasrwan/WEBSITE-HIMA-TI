@@ -37,20 +37,17 @@ export function ClipReveal({ children, className = "", delay = 0, direction = "u
         break;
     }
     
-    gsap.fromTo(containerRef.current,
-      { clipPath: clipStart },
-      {
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-        duration: 1.5,
-        delay,
-        ease: "power4.inOut",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 85%",
-          toggleActions: "play none none reverse",
-        }
+    gsap.from(containerRef.current, {
+      clipPath: clipStart,
+      duration: 1.5,
+      delay,
+      ease: "power4.inOut",
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 85%",
+        toggleActions: "play none none reverse",
       }
-    );
+    });
   }, { scope: containerRef, dependencies: [shouldReduceMotion] });
 
   return (
