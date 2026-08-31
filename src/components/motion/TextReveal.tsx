@@ -20,7 +20,7 @@ export function TextReveal({ text, className = "", delay = 0 }: TextRevealProps)
   useGSAP(() => {
     if (shouldReduceMotion) return;
     
-    gsap.fromTo(".text-reveal-word",
+    gsap.fromTo(gsap.utils.toArray(".text-reveal-word", containerRef.current),
       { y: "110%", opacity: 0 },
       {
         y: "0%",
@@ -36,13 +36,15 @@ export function TextReveal({ text, className = "", delay = 0 }: TextRevealProps)
         }
       }
     );
-  }, { scope: containerRef, dependencies: [shouldReduceMotion, text] });
+  }, { scope: containerRef, dependencies: [shouldReduceMotion, text, delay] });
 
   return (
     <h1 ref={containerRef} className={`${className} flex flex-wrap`}>
       {words.map((word, i) => (
-        <span key={i} className="overflow-hidden inline-block mr-2 lg:mr-4 mb-1 lg:mb-2">
-          <span className="text-reveal-word inline-block">{word}</span>
+        <span key={i} className="overflow-hidden inline-block mr-[0.25em] mb-[0.1em]">
+          <span className="text-reveal-word inline-block transform translate-y-[110%] opacity-0">
+            {word}
+          </span>
         </span>
       ))}
     </h1>

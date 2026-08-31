@@ -7,7 +7,7 @@ import { EditorialGrid } from "@/components/layout/EditorialGrid";
 import { gsap, useGSAP } from "@/animations/gsap-setup";
 import { useReducedMotion } from "@/animations/use-reduced-motion";
 
-import { Magnetic } from "@/components/ui/Magnetic";
+import { Magnetic } from "@/components/motion/Magnetic";
 
 export function Hero() {
   const containerRef = useRef<HTMLElement>(null);

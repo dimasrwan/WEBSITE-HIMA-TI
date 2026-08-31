@@ -6,7 +6,7 @@ import { Container } from "@/components/layout/Container";
 import { gsap, useGSAP } from "@/animations/gsap-setup";
 import { useReducedMotion } from "@/animations/use-reduced-motion";
 
-import { Magnetic } from "@/components/ui/Magnetic";
+import { Magnetic } from "@/components/motion/Magnetic";
 
 export function HomeCTA() {
   const containerRef = useRef<HTMLElement>(null);
