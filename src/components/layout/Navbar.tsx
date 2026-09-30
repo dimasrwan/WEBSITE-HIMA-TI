@@ -23,9 +23,21 @@ export default function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 30);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
+
+    // Initial check
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -35,17 +47,34 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed left-0 right-0 z-50 transition-all duration-300 ease-out flex justify-center pointer-events-none",
         isScrolled
-          ? "bg-[#0A0A0A]/95 backdrop-blur-md border-b border-[#222225] py-4"
-          : "bg-transparent py-6"
+          ? "top-3 sm:top-4 px-3 sm:px-6"
+          : "top-0 px-0"
       )}
     >
-      <Container size="xl">
+      <div
+        className={cn(
+          "w-full transition-all duration-300 ease-out pointer-events-auto",
+          isScrolled
+            ? "max-w-6xl mx-auto bg-[#111111]/90 backdrop-blur-md border border-[#27272A] rounded-xl shadow-2xl shadow-black/40 py-2.5 px-4 sm:px-6"
+            : "max-w-7xl mx-auto bg-transparent border-transparent py-5 sm:py-6 px-4 sm:px-6 lg:px-8"
+        )}
+      >
         <div className="flex items-center justify-between">
           {/* Logo Brand */}
-          <Link href="/" onClick={closeMobileMenu} className="flex items-center gap-3.5 group">
-            <div className="relative w-7 h-8 transition-transform group-hover:scale-105">
+          <Link
+            href="/"
+            onClick={closeMobileMenu}
+            className="flex items-center gap-3 group"
+          >
+            <div
+              className={cn(
+                "relative transition-all duration-300",
+                isScrolled ? "w-6 h-7" : "w-7 h-8",
+                "group-hover:scale-105"
+              )}
+            >
               <Image
                 src="/logo.svg"
                 alt="Logo Resmi HIMA-TI UIN Ar-Raniry"
@@ -55,7 +84,12 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-sm tracking-wider text-[#F5F5F2] font-mono group-hover:text-[#F97316] transition-colors">
+              <span
+                className={cn(
+                  "font-extrabold tracking-wider text-[#F5F5F2] font-mono group-hover:text-[#F97316] transition-colors",
+                  isScrolled ? "text-xs sm:text-sm" : "text-sm"
+                )}
+              >
                 HIMA-TI
               </span>
               <span className="text-[10px] text-[#71717A] tracking-wider uppercase font-mono hidden sm:inline-block">
@@ -65,7 +99,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -93,7 +127,10 @@ export default function Navbar() {
             <Link
               href="/kontak"
               className={cn(
-                "inline-flex items-center gap-2 px-5 py-2.5 text-xs font-mono font-bold uppercase tracking-wider transition-all duration-200",
+                "inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider transition-all duration-200",
+                isScrolled
+                  ? "px-4 py-2"
+                  : "px-5 py-2.5",
                 pathname === "/kontak"
                   ? "bg-[#F97316] text-[#0A0A0A]"
                   : "bg-transparent text-[#F5F5F2] border border-[#333338] hover:border-[#F97316] hover:text-[#F97316]"
@@ -107,17 +144,21 @@ export default function Navbar() {
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-[#A1A1AA] hover:text-[#F5F5F2] focus:outline-none"
+            className="md:hidden p-1.5 text-[#A1A1AA] hover:text-[#F5F5F2] focus:outline-none"
             aria-label={mobileMenuOpen ? "Tutup menu" : "Buka menu"}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
           </button>
         </div>
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-4 p-6 bg-[#111111] border border-[#222225] animate-in fade-in duration-200">
-            <div className="flex flex-col gap-4">
+          <div
+            className={cn(
+              "md:hidden mt-3 p-5 bg-[#111111] border border-[#27272A] rounded-xl shadow-xl animate-in fade-in duration-200"
+            )}
+          >
+            <div className="flex flex-col gap-3.5">
               {NAV_LINKS.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -126,7 +167,7 @@ export default function Navbar() {
                     href={link.href}
                     onClick={closeMobileMenu}
                     className={cn(
-                      "text-sm uppercase font-mono tracking-wider py-1",
+                      "text-xs uppercase font-mono tracking-wider py-1.5",
                       isActive
                         ? "text-[#F97316] font-bold"
                         : "text-[#A1A1AA] hover:text-[#F5F5F2]"
@@ -136,20 +177,21 @@ export default function Navbar() {
                   </Link>
                 );
               })}
-              <div className="pt-4 mt-2 border-t border-[#222225]">
+              <div className="pt-3 mt-1 border-t border-[#222225]">
                 <Link
                   href="/kontak"
                   onClick={closeMobileMenu}
-                  className="flex items-center justify-between py-2 text-xs font-mono uppercase font-bold text-[#F97316]"
+                  className="flex items-center justify-between py-1.5 text-xs font-mono uppercase font-bold text-[#F97316]"
                 >
                   <span>Hubungi Kami</span>
-                  <ArrowUpRight className="w-4 h-4" />
+                  <ArrowUpRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
           </div>
         )}
-      </Container>
+      </div>
     </header>
   );
 }
+
