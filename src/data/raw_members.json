@@ -1,0 +1,604 @@
+[
+  {
+    "no": 1,
+    "name": "Muhammad Asyraf",
+    "nim": "230705128",
+    "prodi": "Teknologi Informasi",
+    "role": "Ketua Umum"
+  },
+  {
+    "no": 2,
+    "name": "Rijalul Fahmi",
+    "nim": "230705153",
+    "prodi": "Teknologi Informasi",
+    "role": "Wakil Ketua Umum"
+  },
+  {
+    "no": 3,
+    "name": "Muhammadon",
+    "nim": "230705077",
+    "prodi": "Teknologi Informasi",
+    "role": "Sekretaris Umum"
+  },
+  {
+    "no": 4,
+    "name": "Dimas Irawan",
+    "nim": "230705149",
+    "prodi": "Teknologi Informasi",
+    "role": "Bendahara Umum"
+  },
+  {
+    "no": 5,
+    "name": "Muhammad Abrar",
+    "nim": "240705063",
+    "prodi": "Teknologi Informasi",
+    "role": "Ketua Divisi Hubungan Masyarakat Dan Kerjasama"
+  },
+  {
+    "no": 6,
+    "name": "Maulana Akbar",
+    "nim": "240705105",
+    "prodi": "Teknologi Informasi",
+    "role": "Wakil Ketua Divisi Hubungan Masyarakat Dan Kerjasama"
+  },
+  {
+    "no": 7,
+    "name": "Fitriya Ramadhani",
+    "nim": "230705137",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Hubungan Masyarakat Dan Kerjasama"
+  },
+  {
+    "no": 8,
+    "name": "Cut Nurul Musliah",
+    "nim": "240705015",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Hubungan Masyarakat Dan Kerjasama"
+  },
+  {
+    "no": 9,
+    "name": "Cut Siti Mayasha",
+    "nim": "240705047",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Hubungan Masyarakat Dan Kerjasama"
+  },
+  {
+    "no": 9,
+    "name": "Restu Anju Hidayat",
+    "nim": "240705051",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Hubungan Masyarakat Dan Kerjasama"
+  },
+  {
+    "no": 10,
+    "name": "Nazmi Al Husaini",
+    "nim": "240705108",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Hubungan Masyarakat Dan Kerjasama"
+  },
+  {
+    "no": 11,
+    "name": "Maulana Raju",
+    "nim": "240705166",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Hubungan Masyarakat Dan Kerjasama"
+  },
+  {
+    "no": 12,
+    "name": "T. Sultansyah Rumi",
+    "nim": "240705168",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Hubungan Masyarakat Dan Kerjasama"
+  },
+  {
+    "no": 13,
+    "name": "M. Fatih Al Afkar",
+    "nim": "240705156",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Hubungan Masyarakat Dan Kerjasama"
+  },
+  {
+    "no": 14,
+    "name": "Alsya Arisca Putri",
+    "nim": "240705067",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Hubungan Masyarakat Dan Kerjasama"
+  },
+  {
+    "no": 15,
+    "name": "Nazwa Salsa Billa",
+    "nim": "240705139",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Hubungan Masyarakat Dan Kerjasama"
+  },
+  {
+    "no": 16,
+    "name": "Muzammil",
+    "nim": "230705185",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Hubungan Masyarakat dan Kerjasama"
+  },
+  {
+    "no": 17,
+    "name": "Dandi Sultana Putra Ali",
+    "nim": "230705199",
+    "prodi": "Teknologi Informasi",
+    "role": "Ketua Divisi Minat Dan Bakat Teknologi"
+  },
+  {
+    "no": 18,
+    "name": "Ferta Junindi",
+    "nim": "240705054",
+    "prodi": "Teknologi Informasi",
+    "role": "Wakil Ketua Divisi Minat Dan Bakat Teknologi"
+  },
+  {
+    "no": 19,
+    "name": "Achmad Faris Faqih",
+    "nim": "230705001",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Minat Dan Bakat Teknologi"
+  },
+  {
+    "no": 20,
+    "name": "Ikhlassul Amal",
+    "nim": "230705105",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Minat Dan Bakat Teknologi"
+  },
+  {
+    "no": 21,
+    "name": "M.Hafizh Rizki",
+    "nim": "230705212",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Minat Dan Bakat Teknologi"
+  },
+  {
+    "no": 22,
+    "name": "Muhammad Razi",
+    "nim": "240705119",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Minat Dan Bakat Teknologi"
+  },
+  {
+    "no": 23,
+    "name": "Reval Maulidan",
+    "nim": "240705131",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Minat Dan Bakat Teknologi"
+  },
+  {
+    "no": 24,
+    "name": "M. Nafis Sauqy",
+    "nim": "230705187",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Minat Dan Bakat Teknologi"
+  },
+  {
+    "no": 25,
+    "name": "Ahmad Farhan",
+    "nim": "230705193",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Minat Dan Bakat Teknologi"
+  },
+  {
+    "no": 26,
+    "name": "Muhammad Fauzi",
+    "nim": "230705181",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Minat Dan Bakat Teknologi"
+  },
+  {
+    "no": 27,
+    "name": "Azhabul Firdaus",
+    "nim": "230705161",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Minat Dan Bakat Teknologi"
+  },
+  {
+    "no": 28,
+    "name": "Masrul Hadi",
+    "nim": "240705068",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Minat Dan Bakat Teknologi"
+  },
+  {
+    "no": 29,
+    "name": "Muhammad Rizqi Ziaulia",
+    "nim": "240705020",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Minat Dan Bakat Teknologi"
+  },
+  {
+    "no": 30,
+    "name": "Muhammad Faris Fatahillah",
+    "nim": "230705042",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Minat Dan Bakat Teknologi"
+  },
+  {
+    "no": 31,
+    "name": "Muhammad Naufal Tiftazani",
+    "nim": "230705117",
+    "prodi": "Teknologi Informasi",
+    "role": "Ketua Divisi Multimedia"
+  },
+  {
+    "no": 32,
+    "name": "Muhammad Alif Al Furkani",
+    "nim": "240705027",
+    "prodi": "Teknologi Informasi",
+    "role": "Wakil Ketua Divisi Multimedia"
+  },
+  {
+    "no": 33,
+    "name": "Muhammad Kafka Alfayed",
+    "nim": "240705029",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Multimedia"
+  },
+  {
+    "no": 34,
+    "name": "Usman Shiddiq",
+    "nim": "240705031",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Multimedia"
+  },
+  {
+    "no": 35,
+    "name": "Muhammad Ulwais Al Karni",
+    "nim": "240705058",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Multimedia"
+  },
+  {
+    "no": 36,
+    "name": "Radiansyah Putra",
+    "nim": "240705061",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Multimedia"
+  },
+  {
+    "no": 37,
+    "name": "Muhammad Abdan Fatih Saika",
+    "nim": "240705097",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Multimedia"
+  },
+  {
+    "no": 38,
+    "name": "Annur Mahardhika Putra",
+    "nim": "240705120",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Multimedia"
+  },
+  {
+    "no": 39,
+    "name": "M.Pasha",
+    "nim": "240705076",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Multimedia"
+  },
+  {
+    "no": 40,
+    "name": "Muharriel",
+    "nim": "240705069",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Multimedia"
+  },
+  {
+    "no": 41,
+    "name": "Aldori Mifta",
+    "nim": "230705020",
+    "prodi": "Teknologi Informasi",
+    "role": "Ketua Divisi Pengembangan Sumber Daya Mahasiswa"
+  },
+  {
+    "no": 42,
+    "name": "Syahri Ramadhan",
+    "nim": "240705090",
+    "prodi": "Teknologi Informasi",
+    "role": "Wakil Ketua Divisi Pengembangan Sumber Daya Mahasiswa"
+  },
+  {
+    "no": 43,
+    "name": "Raihan Firnanda",
+    "nim": "240705073",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Pengembangan Sumber Daya Mahasiswa"
+  },
+  {
+    "no": 44,
+    "name": "Isra Akmal Saputra",
+    "nim": "230705058",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Pengembangan Sumber Daya Mahasiswa"
+  },
+  {
+    "no": 45,
+    "name": "Ahmad Azhar",
+    "nim": "230705135",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Pengembangan Sumber Daya Mahasiswa"
+  },
+  {
+    "no": 46,
+    "name": "Arifa Nabila",
+    "nim": "230705129",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Pengembangan Sumber Daya Mahasiswa"
+  },
+  {
+    "no": 47,
+    "name": "Nazil Ramadhan",
+    "nim": "240705169",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Pengembangan Sumber Daya Mahasiswa"
+  },
+  {
+    "no": 48,
+    "name": "Syarifah Nazira Balqis Alhabsyi",
+    "nim": "240705014",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Pengembangan Sumber Daya Mahasiswa"
+  },
+  {
+    "no": 49,
+    "name": "Salsabila",
+    "nim": "240705037",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Pengembangan Sumber Daya Mahasiswa"
+  },
+  {
+    "no": 50,
+    "name": "Muhammmad Naufal Alifaturrafif",
+    "nim": "240705136",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Pengembangan Sumber Daya Mahasiswa"
+  },
+  {
+    "no": 51,
+    "name": "Imam Al-Khalis",
+    "nim": "240705118",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Pengembangan Sumber Daya Mahasiswa"
+  },
+  {
+    "no": 52,
+    "name": "M. Ihsan",
+    "nim": "240705137",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Pengembangan Sumber Daya Mahasiswa"
+  },
+  {
+    "no": 53,
+    "name": "Syakila Delina Hadisty",
+    "nim": "240705127",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Pengembangan Sumber Daya Mahasiswa"
+  },
+  {
+    "no": 54,
+    "name": "Al Muttaqin",
+    "nim": "240705130",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Pengembangan Sumber Daya Mahasiswa"
+  },
+  {
+    "no": 55,
+    "name": "Riyan Arya Syahputra",
+    "nim": "240705142",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Pengembangan Sumber Daya Mahasiswa"
+  },
+  {
+    "no": 56,
+    "name": "M. Zaki Asyafiq",
+    "nim": "240705161",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Pengembangan Sumber Daya Mahasiswa"
+  },
+  {
+    "no": 57,
+    "name": "Nurul Annisa",
+    "nim": "230705176",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Pengembangan Sumber Daya Mahasiswa"
+  },
+  {
+    "no": 58,
+    "name": "Zahara",
+    "nim": "230705168",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Pengembangan Sumber Daya Mahasiswa"
+  },
+  {
+    "no": 59,
+    "name": "Syadid Multazam",
+    "nim": "240705133",
+    "prodi": "Teknologi Informasi",
+    "role": "Ketua Divisi Kewirausahaan"
+  },
+  {
+    "no": 60,
+    "name": "M. Dhiyaulhaq Al Faiz",
+    "nim": "240705085",
+    "prodi": "Teknologi Informasi",
+    "role": "Wakil Ketua Divisi Kewirausahaan"
+  },
+  {
+    "no": 61,
+    "name": "Fadya Zahira",
+    "nim": "240705002",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Kewirausahan"
+  },
+  {
+    "no": 62,
+    "name": "Maqfirah Mz",
+    "nim": "240705165",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Kewirausahan"
+  },
+  {
+    "no": 63,
+    "name": "Annisa Sri Mentari",
+    "nim": "240705049",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Kewirausahan"
+  },
+  {
+    "no": 64,
+    "name": "Muhammad Lazuardi Rafi",
+    "nim": "240705145",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Kewirausahan"
+  },
+  {
+    "no": 65,
+    "name": "M.Aljir Riski",
+    "nim": "240705164",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Kewirausahan"
+  },
+  {
+    "no": 66,
+    "name": "Amira Fatini Br Pasaribu",
+    "nim": "240705013",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Kewirausahan"
+  },
+  {
+    "no": 67,
+    "name": "Dayan Fhuri",
+    "nim": "240705121",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Kewirausahan"
+  },
+  {
+    "no": 68,
+    "name": "Salsabila Asy Syifa",
+    "nim": "240705035",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Kewirausahan"
+  },
+  {
+    "no": 69,
+    "name": "Rajul Akhyar",
+    "nim": "240705064",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Kewirausahan"
+  },
+  {
+    "no": 70,
+    "name": "Cut Ismaton Nufus",
+    "nim": "240705025",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Kewirausahan"
+  },
+  {
+    "no": 71,
+    "name": "M. Iqmal Maulana Saragih",
+    "nim": "240705053",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Kewirausahan"
+  },
+  {
+    "no": 72,
+    "name": "Rizky Fadhlu Ramadhanu",
+    "nim": "240705045",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Kewirausahan"
+  },
+  {
+    "no": 73,
+    "name": "Safar",
+    "nim": "240705026",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Kewirausahan"
+  },
+  {
+    "no": 74,
+    "name": "Fadzlun Ulfa Hafifah",
+    "nim": "230705006",
+    "prodi": "Teknologi Informasi",
+    "role": "Ketua Divisi Akademik Dan Keilmuan"
+  },
+  {
+    "no": 75,
+    "name": "Firly Lizarny",
+    "nim": "230705152",
+    "prodi": "Teknologi Informasi",
+    "role": "Wakil Ketua Divisi Akademik Dan Keilmuan"
+  },
+  {
+    "no": 76,
+    "name": "Ismi Chairunnisa",
+    "nim": "230705218",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Akademik Dan Keilmuan"
+  },
+  {
+    "no": 77,
+    "name": "Mutiah Nisa Putri",
+    "nim": "230705216",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Akademik Dan Keilmuan"
+  },
+  {
+    "no": 78,
+    "name": "Nabila Syarifa Sunardi",
+    "nim": "240705019",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Akademik Dan Keilmuan"
+  },
+  {
+    "no": 79,
+    "name": "Qomariyatun Nisa Khoiriyah",
+    "nim": "240705016",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Akademik Dan Keilmuan"
+  },
+  {
+    "no": 80,
+    "name": "Moza Warah",
+    "nim": "240705038",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Akademik Dan Keilmuan"
+  },
+  {
+    "no": 81,
+    "name": "Muhammad Fatih",
+    "nim": "240705059",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Akademik Dan Keilmuan"
+  },
+  {
+    "no": 82,
+    "name": "Maisarah",
+    "nim": "240705098",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Akademik Dan Keilmuan"
+  },
+  {
+    "no": 83,
+    "name": "Nurul Maqfirah",
+    "nim": "240705134",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Akademik Dan Keilmuan"
+  },
+  {
+    "no": 84,
+    "name": "Muhammad Rizqa Aulia",
+    "nim": "240705017",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Akademik Dan Keilmuan"
+  },
+  {
+    "no": 85,
+    "name": "M. Naufal",
+    "nim": "240705075",
+    "prodi": "Teknologi Informasi",
+    "role": "Anggota Divisi Akademik Dan Keilmuan"
+  }
+]
