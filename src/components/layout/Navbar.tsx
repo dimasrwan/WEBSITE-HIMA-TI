@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import Container from "@/components/ui/Container";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -28,7 +27,7 @@ export default function Navbar() {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 30);
+          setIsScrolled(window.scrollY > 25);
           ticking = false;
         });
         ticking = true;
@@ -47,7 +46,7 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "fixed left-0 right-0 z-50 transition-all duration-300 ease-out flex justify-center pointer-events-none",
+        "fixed left-0 right-0 z-50 transition-all duration-400 ease-out flex justify-center pointer-events-none",
         isScrolled
           ? "top-3 sm:top-4 px-3 sm:px-6"
           : "top-0 px-0"
@@ -55,23 +54,23 @@ export default function Navbar() {
     >
       <div
         className={cn(
-          "w-full transition-all duration-300 ease-out pointer-events-auto",
+          "w-full transition-all duration-400 ease-out pointer-events-auto",
           isScrolled
-            ? "max-w-6xl mx-auto bg-[#111111]/90 backdrop-blur-md border border-[#27272A] rounded-xl shadow-2xl shadow-black/40 py-2.5 px-4 sm:px-6"
-            : "max-w-7xl mx-auto bg-transparent border-transparent py-5 sm:py-6 px-4 sm:px-6 lg:px-8"
+            ? "max-w-[1160px] mx-auto bg-[#111111]/92 backdrop-blur-md border border-[#27272A]/80 rounded-2xl shadow-2xl shadow-black/50 min-h-[64px] py-2 px-5 sm:px-7"
+            : "max-w-7xl mx-auto bg-transparent border border-transparent min-h-[76px] sm:min-h-[80px] py-4 sm:py-5 px-5 sm:px-8 lg:px-12"
         )}
       >
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between min-h-[48px]">
           {/* Logo Brand */}
           <Link
             href="/"
             onClick={closeMobileMenu}
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-3.5 group shrink-0"
           >
             <div
               className={cn(
-                "relative transition-all duration-300",
-                isScrolled ? "w-6 h-7" : "w-7 h-8",
+                "relative transition-all duration-400",
+                isScrolled ? "w-8 h-9 sm:w-9 sm:h-10" : "w-9 h-10 sm:w-10 sm:h-11",
                 "group-hover:scale-105"
               )}
             >
@@ -83,23 +82,23 @@ export default function Navbar() {
                 priority
               />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col justify-center">
               <span
                 className={cn(
-                  "font-extrabold tracking-wider text-[#F5F5F2] font-mono group-hover:text-[#F97316] transition-colors",
-                  isScrolled ? "text-xs sm:text-sm" : "text-sm"
+                  "font-extrabold tracking-wider text-[#F5F5F2] font-mono group-hover:text-[#F97316] transition-colors leading-none",
+                  isScrolled ? "text-sm sm:text-base" : "text-base sm:text-lg"
                 )}
               >
                 HIMA-TI
               </span>
-              <span className="text-[10px] text-[#71717A] tracking-wider uppercase font-mono hidden sm:inline-block">
+              <span className="text-[10px] sm:text-[11px] text-[#71717A] tracking-wider uppercase font-mono hidden sm:inline-block mt-0.5 leading-none">
                 FST UIN Ar-Raniry
               </span>
             </div>
           </Link>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+          {/* Desktop Nav Links (Centered) */}
+          <nav className="hidden md:flex items-center gap-8 lg:gap-10">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -107,7 +106,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "text-xs uppercase font-mono tracking-wider transition-colors py-1 relative",
+                    "text-[13px] lg:text-[14px] uppercase font-mono tracking-wider transition-colors py-1.5 relative whitespace-nowrap",
                     isActive
                       ? "text-[#F97316] font-bold"
                       : "text-[#A1A1AA] hover:text-[#F5F5F2]"
@@ -123,7 +122,7 @@ export default function Navbar() {
           </nav>
 
           {/* Contact CTA Button (Right) */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center shrink-0">
             <Link
               href="/kontak"
               className={cn(
@@ -144,10 +143,10 @@ export default function Navbar() {
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-1.5 text-[#A1A1AA] hover:text-[#F5F5F2] focus:outline-none"
+            className="md:hidden p-2 text-[#A1A1AA] hover:text-[#F5F5F2] focus:outline-none"
             aria-label={mobileMenuOpen ? "Tutup menu" : "Buka menu"}
           >
-            {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
@@ -155,7 +154,7 @@ export default function Navbar() {
         {mobileMenuOpen && (
           <div
             className={cn(
-              "md:hidden mt-3 p-5 bg-[#111111] border border-[#27272A] rounded-xl shadow-xl animate-in fade-in duration-200"
+              "md:hidden mt-3 p-5 bg-[#111111] border border-[#27272A] rounded-2xl shadow-xl animate-in fade-in duration-200"
             )}
           >
             <div className="flex flex-col gap-3.5">
@@ -167,7 +166,7 @@ export default function Navbar() {
                     href={link.href}
                     onClick={closeMobileMenu}
                     className={cn(
-                      "text-xs uppercase font-mono tracking-wider py-1.5",
+                      "text-xs sm:text-sm uppercase font-mono tracking-wider py-1.5",
                       isActive
                         ? "text-[#F97316] font-bold"
                         : "text-[#A1A1AA] hover:text-[#F5F5F2]"
@@ -194,4 +193,5 @@ export default function Navbar() {
     </header>
   );
 }
+
 
