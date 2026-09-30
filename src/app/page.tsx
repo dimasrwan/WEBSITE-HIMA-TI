@@ -9,28 +9,13 @@ import CTASection from "@/components/home/CTASection";
 export default function HomePage() {
   return (
     <>
-      <div id="beranda" className="scroll-mt-28">
-        <HeroSection />
-      </div>
-      <div id="tentang" className="scroll-mt-28">
-        <AboutOverviewSection />
-      </div>
-      <div id="kepengurusan" className="scroll-mt-28">
-        <OrganizationBriefSection />
-      </div>
-      <div id="program-kerja" className="scroll-mt-28">
-        <ProgramsOverviewSection />
-      </div>
-      <div id="berita" className="scroll-mt-28">
-        <NewsOverviewSection />
-      </div>
-      <div id="galeri" className="scroll-mt-28">
-        <GalleryOverviewSection />
-      </div>
-      <div id="kontak-cta" className="scroll-mt-28">
-        <CTASection />
-      </div>
+      <HeroSection />
+      <AboutOverviewSection />
+      <OrganizationBriefSection />
+      <ProgramsOverviewSection />
+      <NewsOverviewSection />
+      <GalleryOverviewSection />
+      <CTASection />
     </>
   );
 }
-
