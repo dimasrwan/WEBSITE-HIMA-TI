@@ -1,5 +1,4 @@
 import HeroSection from "@/components/home/HeroSection";
-import AboutOverviewSection from "@/components/home/AboutOverviewSection";
 import OrganizationBriefSection from "@/components/home/OrganizationBriefSection";
 import ProgramsOverviewSection from "@/components/home/ProgramsOverviewSection";
 import NewsOverviewSection from "@/components/home/NewsOverviewSection";
@@ -10,7 +9,6 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <AboutOverviewSection />
       <OrganizationBriefSection />
       <ProgramsOverviewSection />
       <NewsOverviewSection />
@@ -19,3 +17,4 @@ export default function HomePage() {
     </>
   );
 }
+
