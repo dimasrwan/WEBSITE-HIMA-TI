@@ -4,12 +4,12 @@ import React, { useEffect, useRef } from "react";
 
 interface HalftoneBackgroundProps {
   className?: string;
-  intensity?: "hero" | "subtle";
+  intensity?: "hero" | "subtle" | "global";
 }
 
 export default function HalftoneBackground({
   className = "",
-  intensity = "hero",
+  intensity = "global",
 }: HalftoneBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -67,28 +67,29 @@ export default function HalftoneBackground({
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
 
     let time = 0;
+    const isGlobal = intensity === "global";
     const isHero = intensity === "hero";
-    const spacing = isHero ? 22 : 28; // Grid spacing in px
-    const maxRadius = isHero ? 4.2 : 2.8;
+    const spacing = isGlobal ? 24 : isHero ? 22 : 28; // Grid spacing in px
+    const maxRadius = isGlobal ? 3.6 : isHero ? 4.2 : 2.8;
 
     const render = () => {
-      time += prefersReducedMotion ? 0 : 0.0008; // Ultra slow, extremely calm and ambient wave flow
+      time += prefersReducedMotion ? 0 : 0.003; // Smooth visible flowing motion
 
       // Smooth mouse interpolation
-      mouse.x += (mouse.targetX - mouse.x) * 0.02;
-      mouse.y += (mouse.targetY - mouse.y) * 0.02;
+      mouse.x += (mouse.targetX - mouse.x) * 0.04;
+      mouse.y += (mouse.targetY - mouse.y) * 0.04;
 
       ctx.clearRect(0, 0, width, height);
 
       const cols = Math.ceil(width / spacing) + 1;
       const rows = Math.ceil(height / spacing) + 1;
 
-      // Compute wave centers & organic flow fields with very slow harmonic cycles
-      const centerX1 = width * (0.65 + Math.sin(time * 0.15) * 0.1);
-      const centerY1 = height * (0.45 + Math.cos(time * 0.18) * 0.1);
+      // Dynamic wave epicenters
+      const centerX1 = width * (0.62 + Math.sin(time * 0.5) * 0.18);
+      const centerY1 = height * (0.45 + Math.cos(time * 0.6) * 0.16);
 
-      const centerX2 = width * (0.3 + Math.cos(time * 0.12) * 0.08);
-      const centerY2 = height * (0.7 + Math.sin(time * 0.14) * 0.08);
+      const centerX2 = width * (0.28 + Math.cos(time * 0.4) * 0.14);
+      const centerY2 = height * (0.68 + Math.sin(time * 0.45) * 0.16);
 
       const mousePxX = mouse.x * width;
       const mousePxY = mouse.y * height;
@@ -98,44 +99,38 @@ export default function HalftoneBackground({
         for (let j = 0; j < rows; j++) {
           const y = j * spacing;
 
-          // Distance to primary dynamic wave field
+          // Distance to wave epicenters & mouse
           const d1 = Math.hypot(x - centerX1, y - centerY1);
           const d2 = Math.hypot(x - centerX2, y - centerY2);
           const dMouse = Math.hypot(x - mousePxX, y - mousePxY);
 
-          // Wave field equation with very slow, serene harmonic layers
-          const wave1 = Math.sin(d1 * 0.012 - time * 0.35);
-          const wave2 = Math.cos(d2 * 0.015 - time * 0.3);
-          const wave3 = Math.sin((x * 0.008 + y * 0.008) + time * 0.2);
+          // Flowing wave oscillations
+          const wave1 = Math.sin(d1 * 0.014 - time * 1.2);
+          const wave2 = Math.cos(d2 * 0.016 - time * 0.9);
+          const wave3 = Math.sin((x * 0.006 + y * 0.006) + time * 0.7);
           
           // Mouse proximity ripple effect
-          const mouseInfluence = Math.max(0, 1 - dMouse / 280) * 0.35;
-
-
+          const mouseInfluence = Math.max(0, 1 - dMouse / 260) * 0.5;
 
           // Composite intensity (0 to 1)
           let val = (wave1 * 0.45 + wave2 * 0.35 + wave3 * 0.2 + mouseInfluence);
-          // Scale & normalize to range [0, 1]
           val = (val + 1) / 2;
 
-          if (val < 0.12) continue; // Skip near-invisible dots to save draw calls
+          if (val < 0.1) continue;
 
           const radius = Math.max(0.6, val * maxRadius);
 
-          // Dark editorial color palette (ultra-subtle & understated):
-          // Near background: dark charcoal gray
-          // Mid intensity: soft muted amber
-          // High peaks: subtle signature HIMA-TI orange
+          // Softened Dark Editorial Palette
           let fillStyle: string;
-          if (val > 0.72) {
-            const alpha = isHero ? (0.12 + val * 0.12) : (0.08 + val * 0.08);
-            fillStyle = `rgba(249, 115, 22, ${alpha.toFixed(2)})`; // #F97316
-          } else if (val > 0.45) {
-            const alpha = isHero ? 0.09 : 0.06;
-            fillStyle = `rgba(217, 84, 18, ${alpha})`; // Muted warm amber
+          if (val > 0.7) {
+            const alpha = (isGlobal || isHero) ? (0.32 + val * 0.3) : (0.18 + val * 0.18);
+            fillStyle = `rgba(249, 115, 22, ${alpha.toFixed(2)})`; // Softened HIMA-TI Orange #F97316
+          } else if (val > 0.42) {
+            const alpha = (isGlobal || isHero) ? 0.25 : 0.14;
+            fillStyle = `rgba(217, 84, 18, ${alpha})`; // Deep Amber
           } else {
-            const alpha = isHero ? 0.05 : 0.03;
-            fillStyle = `rgba(113, 113, 122, ${alpha})`; // Barely visible gray #71717A
+            const alpha = (isGlobal || isHero) ? 0.15 : 0.08;
+            fillStyle = `rgba(113, 113, 122, ${alpha})`; // Charcoal Gray
           }
 
           ctx.beginPath();
@@ -157,20 +152,27 @@ export default function HalftoneBackground({
     };
   }, [intensity]);
 
+  const isGlobal = intensity === "global";
+
   return (
     <div
-      className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}
+      className={`${
+        isGlobal
+          ? "fixed inset-0 z-0 pointer-events-none"
+          : "absolute inset-0 overflow-hidden pointer-events-none"
+      } ${className}`}
       aria-hidden="true"
     >
       <canvas
         ref={canvasRef}
-        className="w-full h-full block opacity-60 transition-opacity duration-700"
+        className="w-full h-full block opacity-85 transition-opacity duration-700"
       />
-      {/* Subtle radial vignette gradient to seamlessly integrate with dark #0A0A0A background */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-[#0A0A0A]/90 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/95 via-transparent to-[#0A0A0A]/95 pointer-events-none" />
+      {/* Subtle vignette gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/90 via-transparent to-[#0A0A0A]/70 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/90 via-transparent to-[#0A0A0A]/90 pointer-events-none" />
     </div>
   );
 }
+
 
 

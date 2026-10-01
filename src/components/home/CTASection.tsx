@@ -40,11 +40,11 @@ export default function CTASection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-14 sm:py-20 bg-transparent relative">
+    <section ref={containerRef} className="py-14 sm:py-20 relative">
       <Container size="xl">
         <div
           ref={cardRef}
-          className="relative overflow-hidden p-8 sm:p-12 lg:p-16 bg-[#111111]/90 backdrop-blur-sm border border-[#222225] flex flex-col md:flex-row md:items-center justify-between gap-8 rounded-xl"
+          className="relative overflow-hidden p-8 sm:p-12 lg:p-16 bg-[#111111]/80 backdrop-blur-sm border border-[#222225] flex flex-col md:flex-row md:items-center justify-between gap-8 rounded-xl"
         >
           <div className="max-w-2xl relative z-10">
 
