@@ -84,11 +84,11 @@ export default function Footer() {
   return (
     <footer className="bg-[#0A0A0A] border-t border-[#222225] pt-16 sm:pt-20 pb-12 mt-20 sm:mt-24">
       <Container size="xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-10 pb-12 sm:pb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 pb-14 sm:pb-16 items-start">
           {/* Kolom 1: Identitas HIMA-TI (4 cols) */}
-          <div className="lg:col-span-4 flex flex-col items-start">
-            <Link href="/" className="flex items-center gap-3.5 group mb-4">
-              <div className="relative w-9 h-10 transition-transform duration-200 group-hover:scale-105">
+          <div className="lg:col-span-4 flex flex-col items-start pr-0 lg:pr-4">
+            <Link href="/" className="flex items-center gap-3.5 group mb-5">
+              <div className="relative w-9 h-10 transition-transform duration-200 group-hover:scale-105 shrink-0">
                 <Image
                   src="/logo.svg"
                   alt="Logo Resmi HIMA-TI"
@@ -111,8 +111,8 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Kolom 2: NAVIGASI (2.5 cols -> 3 cols) */}
-          <div className="lg:col-span-3 flex flex-col">
+          {/* Kolom 2: NAVIGASI (2 cols) */}
+          <div className="lg:col-span-2 flex flex-col">
             <span className="text-xs font-mono text-[#71717A] uppercase tracking-wider block mb-5 font-semibold">
               NAVIGASI
             </span>
@@ -130,12 +130,12 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Kolom 3: MEDIA SOSIAL (2.5 cols -> 2 cols) */}
-          <div className="lg:col-span-2 flex flex-col">
+          {/* Kolom 3: MEDIA SOSIAL (3 cols) */}
+          <div className="lg:col-span-3 flex flex-col pl-0 lg:pl-2">
             <span className="text-xs font-mono text-[#71717A] uppercase tracking-wider block mb-5 font-semibold">
               MEDIA SOSIAL
             </span>
-            <ul className="space-y-3.5 text-sm">
+            <ul className="space-y-4 text-sm">
               {SOCIAL_ITEMS.map((item) => {
                 const IconComponent = item.icon;
                 return (
@@ -144,14 +144,14 @@ export default function Footer() {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group inline-flex items-center gap-2.5 text-[#A1A1AA] hover:text-[#F97316] transition-colors"
+                      className="group inline-flex items-center gap-3 text-[#A1A1AA] hover:text-[#F97316] transition-colors"
                     >
                       <IconComponent className="w-4 h-4 text-[#F97316] shrink-0 transition-transform group-hover:scale-110" />
                       <div className="flex flex-col">
-                        <span className="text-xs font-medium text-[#D4D4D8] group-hover:text-[#F97316] transition-colors">
+                        <span className="text-xs font-medium text-[#D4D4D8] group-hover:text-[#F97316] transition-colors leading-snug">
                           {item.name}
                         </span>
-                        <span className="text-[11px] font-mono text-[#71717A] group-hover:text-[#F97316]/80 transition-colors">
+                        <span className="text-[11px] font-mono text-[#71717A] group-hover:text-[#F97316]/80 transition-colors leading-snug">
                           {item.username}
                         </span>
                       </div>
@@ -167,37 +167,37 @@ export default function Footer() {
             <span className="text-xs font-mono text-[#71717A] uppercase tracking-wider block mb-5 font-semibold">
               HUBUNGI
             </span>
-            <div className="space-y-4 text-sm text-[#A1A1AA]">
+            <div className="space-y-3.5 text-sm text-[#A1A1AA]">
               {/* Email */}
-              <div className="flex items-start gap-2.5">
+              <div className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-[#F97316] shrink-0 mt-0.5" />
                 <a
                   href={`mailto:${ORG_INFO.email}`}
-                  className="text-[#D4D4D8] hover:text-[#F97316] transition-colors break-all"
+                  className="text-[#D4D4D8] hover:text-[#F97316] transition-colors break-all leading-snug"
                 >
                   {ORG_INFO.email}
                 </a>
               </div>
 
               {/* Telepon */}
-              <div className="flex items-start gap-2.5">
+              <div className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-[#F97316] shrink-0 mt-0.5" />
                 <a
                   href={`tel:${ORG_INFO.phone}`}
-                  className="text-[#D4D4D8] hover:text-[#F97316] transition-colors"
+                  className="text-[#D4D4D8] hover:text-[#F97316] transition-colors leading-snug"
                 >
                   {ORG_INFO.phone}
                 </a>
               </div>
 
               {/* Lokasi */}
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#F97316] shrink-0 mt-0.5" />
+              <div className="flex items-start gap-3 pt-0.5">
+                <MapPin className="w-4 h-4 text-[#F97316] shrink-0 mt-1" />
                 <a
                   href="https://maps.google.com/?q=Fakultas+Sains+dan+Teknologi+UIN+Ar-Raniry+Banda+Aceh"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#D4D4D8] hover:text-[#F97316] transition-colors leading-relaxed"
+                  className="text-[#D4D4D8] hover:text-[#F97316] transition-colors leading-relaxed text-xs sm:text-sm"
                 >
                   Lantai 2, Gedung Fakultas Sains dan Teknologi, UIN Ar-Raniry, Kopelma Darussalam, Kota Banda Aceh, Aceh 23111.
                 </a>
@@ -216,6 +216,7 @@ export default function Footer() {
     </footer>
   );
 }
+
 
 
 
