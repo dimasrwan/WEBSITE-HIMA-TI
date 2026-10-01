@@ -55,8 +55,16 @@ body {
   background: linear-gradient(90deg, #27272A 0%, rgba(39, 39, 42, 0.2) 100%);
 }
 
-/* Selection style */
-::selection {
-  background-color: #F97316;
-  color: #0A0A0A;
+/* Hide injected third-party browser extension badges (e.g. AIDesigner badge) */
+a[href*="aidesigner.ai"],
+div[class*="aidesigner"],
+a[href*="ref=effect-badge"],
+iframe[src*="aidesigner"],
+#aidesigner-badge,
+.aidesigner-badge {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
+
