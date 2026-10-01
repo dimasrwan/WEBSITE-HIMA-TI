@@ -58,12 +58,10 @@ export default function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24 bg-[#0A0A0A] overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24 bg-transparent overflow-hidden"
     >
-      {/* Halftone Canvas Background */}
-      <HalftoneBackground intensity="hero" className="z-0" />
-
       <Container size="xl" className="w-full relative z-10">
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Main Headline & CTAs */}
           <div className="lg:col-span-7 flex flex-col items-start">

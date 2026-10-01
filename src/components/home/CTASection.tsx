@@ -40,16 +40,14 @@ export default function CTASection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-14 sm:py-20 bg-[#0A0A0A] relative">
+    <section ref={containerRef} className="py-14 sm:py-20 bg-transparent relative">
       <Container size="xl">
         <div
           ref={cardRef}
-          className="relative overflow-hidden p-8 sm:p-12 lg:p-16 bg-[#111111] border border-[#222225] flex flex-col md:flex-row md:items-center justify-between gap-8 rounded-xl"
+          className="relative overflow-hidden p-8 sm:p-12 lg:p-16 bg-[#111111]/90 backdrop-blur-sm border border-[#222225] flex flex-col md:flex-row md:items-center justify-between gap-8 rounded-xl"
         >
-          {/* Subtle Halftone inside CTA */}
-          <HalftoneBackground intensity="subtle" className="opacity-60" />
-
           <div className="max-w-2xl relative z-10">
+
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F5F5F2] tracking-tight leading-tight mb-4">
               Mari Berkolaborasi Bersama HIMA-TI
             </h2>

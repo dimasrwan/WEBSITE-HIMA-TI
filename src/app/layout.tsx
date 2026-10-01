@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/layout/SmoothScroll";
+import GlobalHalftoneBackground from "@/components/ui/GlobalHalftoneBackground";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -40,9 +41,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className={`${manrope.variable} ${jetbrainsMono.variable}`}>
-      <body className="font-sans bg-[#0A0A0A] text-[#F5F5F2] antialiased selection:bg-[#F97316] selection:text-black tracking-[-0.01em]">
+      <body className="font-sans bg-[#0A0A0A] text-[#F5F5F2] antialiased selection:bg-[#F97316] selection:text-black tracking-[-0.01em] relative">
+        <GlobalHalftoneBackground />
         <SmoothScroll>
-          <div className="flex flex-col min-h-screen">
+          <div className="flex flex-col min-h-screen relative z-10">
             <Navbar />
             <main className="flex-grow">{children}</main>
             <Footer />
@@ -52,3 +54,4 @@ export default function RootLayout({
     </html>
   );
 }
+
