@@ -27,6 +27,7 @@ export default function HalftoneBackground({
     let animationFrameId: number;
     let width = 0;
     let height = 0;
+    let lastTime = performance.now();
 
     // Mouse coordinates (normalized 0..1 or center default)
     const mouse = {
@@ -68,16 +69,21 @@ export default function HalftoneBackground({
 
     let time = 0;
     const isHero = intensity === "hero";
-    // Increased spacing by ~35% to reduce dot density and create a cleaner, more minimal look
     const spacing = isHero ? 32 : 40; 
     const maxRadius = isHero ? 3.8 : 2.5;
 
-    const render = () => {
-      time += prefersReducedMotion ? 0 : 0.005;
+    const render = (now: number) => {
+      const delta = Math.min((now - lastTime) / 1000, 0.1);
+      lastTime = now;
 
-      // Smooth mouse interpolation
-      mouse.x += (mouse.targetX - mouse.x) * 0.05;
-      mouse.y += (mouse.targetY - mouse.y) * 0.05;
+      // 50% slower, gentle organic progression (0.15 rad/s base time rate)
+      if (!prefersReducedMotion) {
+        time += delta * 0.16;
+      }
+
+      // Softer mouse interpolation for smoother reaction
+      mouse.x += (mouse.targetX - mouse.x) * 0.025;
+      mouse.y += (mouse.targetY - mouse.y) * 0.025;
 
       ctx.clearRect(0, 0, width, height);
 
@@ -104,13 +110,13 @@ export default function HalftoneBackground({
           const d2 = Math.hypot(x - centerX2, y - centerY2);
           const dMouse = Math.hypot(x - mousePxX, y - mousePxY);
 
-          // Wave field equation with harmonic undulating layers
-          const wave1 = Math.sin(d1 * 0.01 - time * 1.3);
-          const wave2 = Math.cos(d2 * 0.013 - time * 1.1);
-          const wave3 = Math.sin((x * 0.006 + y * 0.006) + time * 0.7);
+          // Harmonic undulating wave equations
+          const wave1 = Math.sin(d1 * 0.01 - time * 1.2);
+          const wave2 = Math.cos(d2 * 0.013 - time * 1.0);
+          const wave3 = Math.sin((x * 0.006 + y * 0.006) + time * 0.65);
           
-          // Mouse proximity ripple effect
-          const mouseInfluence = Math.max(0, 1 - dMouse / 260) * 0.55;
+          // Gentle mouse proximity ripple effect
+          const mouseInfluence = Math.max(0, 1 - dMouse / 260) * 0.45;
 
           // Composite intensity (0 to 1)
           let val = (wave1 * 0.45 + wave2 * 0.35 + wave3 * 0.2 + mouseInfluence);
@@ -144,7 +150,7 @@ export default function HalftoneBackground({
       animationFrameId = requestAnimationFrame(render);
     };
 
-    render();
+    animationFrameId = requestAnimationFrame(render);
 
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -168,4 +174,5 @@ export default function HalftoneBackground({
     </div>
   );
 }
+
 
