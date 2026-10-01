@@ -55,7 +55,7 @@ export default function NewsOverviewSection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-14 sm:py-16 bg-[#0A0A0A]">
+    <section ref={containerRef} className="py-14 sm:py-16 bg-transparent">
       <Container size="xl">
         <div ref={headerRef} className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <SectionHeading
@@ -77,7 +77,7 @@ export default function NewsOverviewSection() {
           {/* Main Story (7 cols) */}
           <article
             ref={mainCardRef}
-            className="lg:col-span-7 p-8 sm:p-10 bg-[#111111] flex flex-col justify-between group hover:-translate-y-0.5 transition-all duration-200"
+            className="lg:col-span-7 p-8 sm:p-10 bg-[#111111]/80 backdrop-blur-sm border border-[#222225] flex flex-col justify-between group hover:-translate-y-0.5 transition-all duration-200"
           >
             <div>
               <div className="flex items-center justify-between text-xs font-mono text-[#71717A] mb-4">
@@ -113,8 +113,9 @@ export default function NewsOverviewSection() {
             {otherNews.slice(0, 2).map((article) => (
               <article
                 key={article.slug}
-                className="p-7 bg-[#111111] flex flex-col justify-between flex-1 group hover:-translate-y-0.5 transition-all duration-200"
+                className="p-7 bg-[#111111]/80 backdrop-blur-sm border border-[#222225] flex flex-col justify-between flex-1 group hover:-translate-y-0.5 transition-all duration-200"
               >
+
                 <div>
                   <div className="flex items-center justify-between text-xs font-mono text-[#71717A] mb-2">
                     <span className="text-[#F97316] uppercase font-semibold">{article.category}</span>

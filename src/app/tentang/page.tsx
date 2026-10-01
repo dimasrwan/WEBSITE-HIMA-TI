@@ -10,8 +10,9 @@ export const metadata: Metadata = {
 
 export default function TentangPage() {
   return (
-    <div className="pt-36 pb-28 bg-[#0A0A0A]">
+    <div className="pt-36 pb-28 bg-transparent">
       <Container size="xl">
+
         {/* Page Title Header */}
         <div className="pb-12 mb-16 border-b border-[#222225]">
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-[#F5F5F2] tracking-tight leading-[1.05] max-w-4xl mb-6">

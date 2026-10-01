@@ -13,7 +13,7 @@ export default function BeritaPage() {
   const [featured, ...restNews] = NEWS;
 
   return (
-    <div className="pt-36 pb-28 bg-[#0A0A0A]">
+    <div className="pt-36 pb-28 bg-transparent">
       <Container size="xl">
         {/* Page Header */}
         <div className="pb-12 mb-16 border-b border-[#222225]">
@@ -53,7 +53,7 @@ export default function BeritaPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-4 p-8 bg-[#111111] border border-[#222225]">
+            <div className="lg:col-span-4 p-8 bg-[#111111]/80 backdrop-blur-sm border border-[#222225]">
               <span className="text-xs font-mono text-[#71717A] uppercase block mb-2">Penulis / Rilis:</span>
               <p className="text-sm font-bold text-[#F5F5F2] mb-6">{featured.author}</p>
               <span className="text-xs font-mono text-[#71717A] uppercase block mb-2">Dokumentasi:</span>
@@ -65,9 +65,10 @@ export default function BeritaPage() {
         {/* Supporting News Articles (2-column stack) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {restNews.map((article) => (
-            <article key={article.slug} className="p-8 bg-[#111111] border border-[#222225] flex flex-col justify-between group">
+            <article key={article.slug} className="p-8 bg-[#111111]/80 backdrop-blur-sm border border-[#222225] flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between text-xs font-mono text-[#71717A] pb-4 mb-4 border-b border-[#222225]">
+
                   <span className="text-[#F97316] uppercase">{article.category}</span>
                   <span>{article.date}</span>
                 </div>

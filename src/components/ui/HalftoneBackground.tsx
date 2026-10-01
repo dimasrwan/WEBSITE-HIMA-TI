@@ -109,11 +109,12 @@ export default function HalftoneBackground({
           const wave2 = Math.cos(d2 * 0.016 - time * 0.9);
           const wave3 = Math.sin((x * 0.006 + y * 0.006) + time * 0.7);
           
-          // Mouse proximity ripple effect
-          const mouseInfluence = Math.max(0, 1 - dMouse / 260) * 0.5;
+          // Enhanced mouse proximity ripple & glow effect (15% wider radius: 300px)
+          const mouseInfluence = Math.max(0, 1 - dMouse / 300) * 0.55;
+          const mouseWave = Math.sin(dMouse * 0.02 - time * 1.5) * Math.max(0, 1 - dMouse / 300) * 0.15;
 
           // Composite intensity (0 to 1)
-          let val = (wave1 * 0.45 + wave2 * 0.35 + wave3 * 0.2 + mouseInfluence);
+          let val = (wave1 * 0.42 + wave2 * 0.33 + wave3 * 0.18 + mouseInfluence + mouseWave);
           val = (val + 1) / 2;
 
           if (val < 0.1) continue;
@@ -167,9 +168,17 @@ export default function HalftoneBackground({
         ref={canvasRef}
         className="w-full h-full block opacity-85 transition-opacity duration-700"
       />
-      {/* Subtle vignette gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/90 via-transparent to-[#0A0A0A]/70 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/90 via-transparent to-[#0A0A0A]/90 pointer-events-none" />
+      {/* Soft Radial Vignette for focused center content */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse at 50% 50%, transparent 45%, rgba(10, 10, 10, 0.45) 75%, rgba(10, 10, 10, 0.88) 100%)"
+        }}
+      />
+      {/* Side edge softening */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/85 via-transparent to-[#0A0A0A]/85 pointer-events-none" />
+      {/* Top & Bottom depth gradients */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/75 via-transparent to-[#0A0A0A]/85 pointer-events-none" />
     </div>
   );
 }

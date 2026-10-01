@@ -40,7 +40,7 @@ export default async function BeritaDetailPage({ params }: Props) {
   }
 
   return (
-    <div className="pt-36 pb-28 bg-[#0A0A0A]">
+    <div className="pt-36 pb-28 bg-transparent relative z-10">
       <Container size="md">
         {/* Back Link */}
         <Link

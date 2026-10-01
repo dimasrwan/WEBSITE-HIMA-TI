@@ -16,7 +16,7 @@ export default function GaleriPage() {
       : GALLERY_ITEMS.filter((item) => item.category === selectedCategory);
 
   return (
-    <div className="pt-36 pb-28 bg-[#0A0A0A]">
+    <div className="pt-36 pb-28 bg-transparent">
       <Container size="xl">
         {/* Page Header */}
         <div className="pb-12 mb-12 border-b border-[#222225]">
@@ -51,10 +51,11 @@ export default function GaleriPage() {
           {filteredItems.map((item) => (
             <div
               key={item.id}
-              className="p-8 bg-[#111111] border border-[#222225] flex flex-col justify-between group hover:border-[#F97316] transition-colors min-h-[300px]"
+              className="p-8 bg-[#111111]/80 backdrop-blur-sm border border-[#222225] flex flex-col justify-between group hover:border-[#F97316] transition-colors min-h-[300px]"
             >
               <div>
                 <div className="flex items-center justify-between text-xs font-mono text-[#71717A] pb-4 mb-6 border-b border-[#222225]">
+
                   <span className="text-[#F97316] uppercase">{item.category}</span>
                   <span>{item.date}</span>
                 </div>

@@ -12,7 +12,7 @@ export default function KepengurusanPage() {
   const bphMembers = MEMBERS.filter((m) => m.isBPH);
 
   return (
-    <div className="pt-36 pb-28 bg-[#0A0A0A]">
+    <div className="pt-36 pb-28 bg-transparent">
       <Container size="xl">
         {/* Page Header */}
         <div className="pb-12 mb-16 border-b border-[#222225]">
@@ -39,8 +39,9 @@ export default function KepengurusanPage() {
             {bphMembers.map((member) => (
               <div
                 key={member.nim}
-                className="p-6 bg-[#111111] border border-[#F97316]/50 flex flex-col justify-between min-h-[180px]"
+                className="p-6 bg-[#111111]/80 backdrop-blur-sm border border-[#F97316]/50 flex flex-col justify-between min-h-[180px]"
               >
+
                 <div>
                   <div className="flex items-center justify-between text-xs font-mono text-[#71717A] mb-3">
                     <span className="text-[#F97316] font-bold">BPH INTI</span>

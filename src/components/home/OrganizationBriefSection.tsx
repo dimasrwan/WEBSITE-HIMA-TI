@@ -45,8 +45,9 @@ export default function OrganizationBriefSection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-14 sm:py-16 bg-[#0A0A0A]">
+    <section ref={containerRef} className="py-14 sm:py-16 bg-transparent">
       <Container size="xl">
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           {/* Left Column: Heading, Description & Action */}
           <div ref={leftColRef} className="lg:col-span-5">

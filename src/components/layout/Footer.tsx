@@ -82,8 +82,9 @@ const SOCIAL_ITEMS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0A0A0A] border-t border-[#222225] pt-16 sm:pt-20 pb-12 mt-20 sm:mt-24">
+    <footer className="bg-[#0A0A0A] border-t border-[#222225] pt-16 sm:pt-20 pb-12 mt-20 sm:mt-24 relative z-10">
       <Container size="xl">
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 pb-14 sm:pb-16 items-start">
           {/* Kolom 1: Identitas HIMA-TI (4 cols) */}
           <div className="lg:col-span-4 flex flex-col items-start pr-0 lg:pr-4">

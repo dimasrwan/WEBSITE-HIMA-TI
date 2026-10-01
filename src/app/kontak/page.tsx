@@ -20,7 +20,7 @@ export default function KontakPage() {
   };
 
   return (
-    <div className="pt-36 pb-28 bg-[#0A0A0A]">
+    <div className="pt-36 pb-28 bg-transparent">
       <Container size="xl">
         {/* Page Header */}
         <div className="pb-12 mb-16 border-b border-[#222225]">
@@ -78,8 +78,9 @@ export default function KontakPage() {
 
           {/* Right Column: Clean Editorial Form */}
           <div className="lg:col-span-7">
-            <div className="p-8 sm:p-12 bg-[#111111] border border-[#222225]">
+            <div className="p-8 sm:p-12 bg-[#111111]/80 backdrop-blur-sm border border-[#222225]">
               <h2 className="text-2xl font-bold text-[#F5F5F2] mb-8">
+
                 Kirimkan Surat atau Pesan Langsung
               </h2>
 
