@@ -77,7 +77,7 @@ export default function NewsOverviewSection() {
           {/* Main Story (7 cols) */}
           <article
             ref={mainCardRef}
-            className="lg:col-span-7 p-8 sm:p-10 bg-[#111111]/80 backdrop-blur-sm border border-[#222225] flex flex-col justify-between group hover:-translate-y-0.5 transition-all duration-200"
+            className="lg:col-span-7 p-8 sm:p-10 bg-[#111111]/80 backdrop-blur-sm border border-[#222225] rounded-xl flex flex-col justify-between group hover:-translate-y-1 hover:border-[#F97316]/60 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-300"
           >
             <div>
               <div className="flex items-center justify-between text-xs font-mono text-[#71717A] mb-4">
@@ -100,10 +100,10 @@ export default function NewsOverviewSection() {
               <span>{featuredNews.author}</span>
               <Link
                 href={`/berita/${featuredNews.slug}`}
-                className="text-[#F5F5F2] group-hover:text-[#F97316] transition-colors inline-flex items-center gap-1 font-semibold"
+                className="text-[#F5F5F2] group-hover:text-[#F97316] transition-colors inline-flex items-center gap-1 font-semibold group/btn"
               >
                 <span>Baca Selengkapnya</span>
-                <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
               </Link>
             </div>
           </article>
@@ -113,9 +113,8 @@ export default function NewsOverviewSection() {
             {otherNews.slice(0, 2).map((article) => (
               <article
                 key={article.slug}
-                className="p-7 bg-[#111111]/80 backdrop-blur-sm border border-[#222225] flex flex-col justify-between flex-1 group hover:-translate-y-0.5 transition-all duration-200"
+                className="p-7 bg-[#111111]/80 backdrop-blur-sm border border-[#222225] rounded-xl flex flex-col justify-between flex-1 group hover:-translate-y-1 hover:border-[#F97316]/50 hover:shadow-[0_10px_30px_rgba(0,0,0,0.4)] transition-all duration-300"
               >
-
                 <div>
                   <div className="flex items-center justify-between text-xs font-mono text-[#71717A] mb-2">
                     <span className="text-[#F97316] uppercase font-semibold">{article.category}</span>
@@ -137,10 +136,10 @@ export default function NewsOverviewSection() {
                   <span>{article.author}</span>
                   <Link
                     href={`/berita/${article.slug}`}
-                    className="text-[#F5F5F2] group-hover:text-[#F97316] transition-colors inline-flex items-center gap-1 font-semibold"
+                    className="text-[#F5F5F2] group-hover:text-[#F97316] transition-colors inline-flex items-center gap-1 font-semibold group/btn"
                   >
                     <span>Baca</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                   </Link>
                 </div>
               </article>

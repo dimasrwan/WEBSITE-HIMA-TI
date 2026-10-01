@@ -4,7 +4,6 @@ import React, { useRef, useLayoutEffect } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
-import HalftoneBackground from "@/components/ui/HalftoneBackground";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -59,10 +58,10 @@ export default function CTASection() {
           <div className="shrink-0 relative z-10">
             <Link
               href="/kontak"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#F97316] text-[#0A0A0A] font-bold text-sm tracking-wide uppercase hover:bg-[#EA580C] transition-all duration-200 active:scale-[0.98] shadow-lg shadow-[#F97316]/20"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#F97316] text-[#0A0A0A] font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-[#EA580C] hover:shadow-lg hover:shadow-[#F97316]/30 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 group"
             >
               <span>Hubungi Kami</span>
-              <ArrowUpRight className="w-4 h-4" />
+              <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </div>
         </div>

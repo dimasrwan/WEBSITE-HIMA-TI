@@ -53,7 +53,7 @@ export default function BeritaPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-4 p-8 bg-[#111111]/80 backdrop-blur-sm border border-[#222225]">
+            <div className="lg:col-span-4 p-8 bg-[#111111]/80 backdrop-blur-sm border border-[#222225] rounded-xl">
               <span className="text-xs font-mono text-[#71717A] uppercase block mb-2">Penulis / Rilis:</span>
               <p className="text-sm font-bold text-[#F5F5F2] mb-6">{featured.author}</p>
               <span className="text-xs font-mono text-[#71717A] uppercase block mb-2">Dokumentasi:</span>
@@ -63,13 +63,12 @@ export default function BeritaPage() {
         </article>
 
         {/* Supporting News Articles (2-column stack) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
           {restNews.map((article) => (
-            <article key={article.slug} className="p-8 bg-[#111111]/80 backdrop-blur-sm border border-[#222225] flex flex-col justify-between group">
+            <article key={article.slug} className="p-8 bg-[#111111]/80 backdrop-blur-sm border border-[#222225] rounded-xl flex flex-col justify-between group hover:-translate-y-1 hover:border-[#F97316]/50 hover:shadow-[0_10px_30px_rgba(0,0,0,0.4)] transition-all duration-300">
               <div>
                 <div className="flex items-center justify-between text-xs font-mono text-[#71717A] pb-4 mb-4 border-b border-[#222225]">
-
-                  <span className="text-[#F97316] uppercase">{article.category}</span>
+                  <span className="text-[#F97316] uppercase font-semibold">{article.category}</span>
                   <span>{article.date}</span>
                 </div>
 
@@ -79,7 +78,7 @@ export default function BeritaPage() {
                   </Link>
                 </h3>
 
-                <p className="text-sm text-[#A1A1AA] leading-relaxed mb-6">
+                <p className="text-sm text-[#A1A1AA] leading-relaxed mb-6 font-normal">
                   {article.excerpt}
                 </p>
               </div>
@@ -88,7 +87,7 @@ export default function BeritaPage() {
                 <span>{article.author}</span>
                 <Link
                   href={`/berita/${article.slug}`}
-                  className="text-[#F97316] flex items-center gap-1 group-hover:underline"
+                  className="text-[#F97316] flex items-center gap-1 font-semibold group-hover:translate-x-0.5 transition-transform"
                 >
                   <span>Baca</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />

@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import HalftoneBackground from "@/components/ui/HalftoneBackground";
+import PageTransition from "@/components/layout/PageTransition";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -48,7 +49,9 @@ export default function RootLayout({
         <SmoothScroll>
           <div className="flex flex-col min-h-screen relative z-10">
             <Navbar />
-            <main className="flex-grow">{children}</main>
+            <main className="flex-grow">
+              <PageTransition>{children}</PageTransition>
+            </main>
             <Footer />
           </div>
         </SmoothScroll>

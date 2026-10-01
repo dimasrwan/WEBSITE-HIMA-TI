@@ -66,7 +66,7 @@ export default function OrganizationBriefSection() {
             </Link>
           </div>
 
-          {/* Right Column: Clean Editorial List of Divisions */}
+          {/* Right Column: Clean Editorial List of Divisions with interactive hover */}
           <div
             ref={divisionListRef}
             className="lg:col-span-7 divide-y divide-[#222225] border-y border-[#222225]"
@@ -74,19 +74,20 @@ export default function OrganizationBriefSection() {
             {DIVISIONS.map((div) => (
               <div
                 key={div.id}
-                className="py-3.5 flex items-center justify-between group transition-colors duration-150"
+                className="py-4 px-3 rounded-lg flex items-center justify-between group transition-all duration-300 hover:bg-[#111111]/70"
               >
                 <Link
                   href={`/kepengurusan#${div.id}`}
-                  className="text-base sm:text-lg font-bold text-[#F5F5F2] group-hover:text-[#F97316] transition-colors"
+                  className="text-base sm:text-lg font-bold text-[#F5F5F2] group-hover:text-[#F97316] group-hover:translate-x-1.5 transition-all duration-300"
                 >
                   Divisi {div.name}
                 </Link>
                 <Link
                   href={`/kepengurusan#${div.id}`}
-                  className="text-xs font-mono text-[#71717A] group-hover:text-[#F97316] transition-colors"
+                  className="inline-flex items-center gap-1 text-xs font-mono text-[#71717A] group-hover:text-[#F97316] transition-colors"
                 >
-                  Lihat
+                  <span>Lihat</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
               </div>
             ))}

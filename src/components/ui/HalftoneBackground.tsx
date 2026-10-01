@@ -121,16 +121,16 @@ export default function HalftoneBackground({
 
           const radius = Math.max(0.6, val * maxRadius);
 
-          // Softened Dark Editorial Palette
+          // Softened Dark Editorial Palette (Reduced Contrast)
           let fillStyle: string;
           if (val > 0.7) {
-            const alpha = (isGlobal || isHero) ? (0.32 + val * 0.3) : (0.18 + val * 0.18);
+            const alpha = (isGlobal || isHero) ? (0.22 + val * 0.18) : (0.12 + val * 0.12);
             fillStyle = `rgba(249, 115, 22, ${alpha.toFixed(2)})`; // Softened HIMA-TI Orange #F97316
           } else if (val > 0.42) {
-            const alpha = (isGlobal || isHero) ? 0.25 : 0.14;
+            const alpha = (isGlobal || isHero) ? 0.16 : 0.09;
             fillStyle = `rgba(217, 84, 18, ${alpha})`; // Deep Amber
           } else {
-            const alpha = (isGlobal || isHero) ? 0.15 : 0.08;
+            const alpha = (isGlobal || isHero) ? 0.09 : 0.05;
             fillStyle = `rgba(113, 113, 122, ${alpha})`; // Charcoal Gray
           }
 
@@ -166,7 +166,7 @@ export default function HalftoneBackground({
     >
       <canvas
         ref={canvasRef}
-        className="w-full h-full block opacity-85 transition-opacity duration-700"
+        className="w-full h-full block opacity-75 transition-opacity duration-700"
       />
       {/* Soft Radial Vignette for focused center content */}
       <div 

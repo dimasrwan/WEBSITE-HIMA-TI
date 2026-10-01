@@ -69,10 +69,10 @@ export default function ProgramsOverviewSection() {
           {selectedPrograms.map((prog) => (
             <div
               key={prog.id}
-              className="p-8 bg-[#111111]/85 backdrop-blur-sm border border-[#222225] flex flex-col justify-between group hover:-translate-y-1 transition-all duration-200"
+              className="p-8 bg-[#111111]/85 backdrop-blur-sm border border-[#222225] rounded-xl flex flex-col justify-between group hover:-translate-y-1.5 hover:border-[#F97316]/60 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-300"
             >
               <div>
-                <span className="text-xs font-mono text-[#F97316] uppercase tracking-wider block mb-3">
+                <span className="text-xs font-mono text-[#F97316] uppercase tracking-wider block mb-3 font-semibold">
                   {prog.divisionName}
                 </span>
 
@@ -89,10 +89,10 @@ export default function ProgramsOverviewSection() {
                 <span>{prog.period}</span>
                 <Link
                   href="/program-kerja"
-                  className="text-[#F5F5F2] group-hover:text-[#F97316] transition-colors inline-flex items-center gap-1 font-semibold"
+                  className="text-[#F5F5F2] group-hover:text-[#F97316] transition-colors inline-flex items-center gap-1 font-semibold group/btn"
                 >
                   <span>Detail</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                 </Link>
               </div>
             </div>

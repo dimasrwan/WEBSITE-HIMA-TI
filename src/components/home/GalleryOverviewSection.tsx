@@ -67,15 +67,15 @@ export default function GalleryOverviewSection() {
         {/* Varied Gallery Grid: 1 Featured item (wide) + 2 standard items */}
         <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
           {/* Featured Wide Item */}
-          <div className="md:col-span-6 lg:col-span-6 p-8 sm:p-10 bg-[#111111]/80 backdrop-blur-sm border border-[#222225] flex flex-col justify-between group hover:-translate-y-0.5 transition-all duration-200">
+          <div className="md:col-span-6 lg:col-span-6 p-8 sm:p-10 bg-[#111111]/80 backdrop-blur-sm border border-[#222225] rounded-xl flex flex-col justify-between group hover:-translate-y-1 hover:border-[#F97316]/60 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-300">
             <div>
               <div className="flex items-center justify-between text-xs font-mono text-[#71717A] mb-4">
                 <span className="text-[#F97316] uppercase font-semibold">{featuredGallery.category}</span>
                 <span>{featuredGallery.date}</span>
               </div>
 
-              <span className="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider block mb-2">
-                {featuredGallery.tag}
+              <span className="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider block mb-2 font-semibold">
+                #{featuredGallery.tag}
               </span>
 
               <h3 className="text-2xl font-bold text-[#F5F5F2] leading-snug mb-4 group-hover:text-[#F97316] transition-colors">
@@ -92,17 +92,16 @@ export default function GalleryOverviewSection() {
           {otherGallery.slice(0, 2).map((item) => (
             <div
               key={item.id}
-              className="md:col-span-6 lg:col-span-3 p-7 bg-[#111111]/80 backdrop-blur-sm border border-[#222225] flex flex-col justify-between group hover:-translate-y-0.5 transition-all duration-200"
+              className="md:col-span-6 lg:col-span-3 p-7 bg-[#111111]/80 backdrop-blur-sm border border-[#222225] rounded-xl flex flex-col justify-between group hover:-translate-y-1 hover:border-[#F97316]/50 hover:shadow-[0_10px_30px_rgba(0,0,0,0.4)] transition-all duration-300"
             >
-
               <div>
                 <div className="flex items-center justify-between text-xs font-mono text-[#71717A] mb-3">
                   <span className="text-[#F97316] uppercase font-semibold">{item.category}</span>
                   <span>{item.date}</span>
                 </div>
 
-                <span className="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider block mb-2">
-                  {item.tag}
+                <span className="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider block mb-2 font-semibold">
+                  #{item.tag}
                 </span>
 
                 <h4 className="text-base font-bold text-[#F5F5F2] leading-snug mb-3 group-hover:text-[#F97316] transition-colors">
