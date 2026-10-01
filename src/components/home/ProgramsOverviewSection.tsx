@@ -47,7 +47,7 @@ export default function ProgramsOverviewSection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-14 sm:py-16 bg-[#0A0A0A]">
+    <section ref={containerRef} className="py-14 sm:py-16 bg-transparent">
       <Container size="xl">
         <div ref={headerRef} className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <SectionHeading
@@ -69,7 +69,7 @@ export default function ProgramsOverviewSection() {
           {selectedPrograms.map((prog) => (
             <div
               key={prog.id}
-              className="p-8 bg-[#111111] flex flex-col justify-between group hover:-translate-y-1 transition-all duration-200"
+              className="p-8 bg-[#111111]/85 backdrop-blur-sm border border-[#222225] flex flex-col justify-between group hover:-translate-y-1 transition-all duration-200"
             >
               <div>
                 <span className="text-xs font-mono text-[#F97316] uppercase tracking-wider block mb-3">

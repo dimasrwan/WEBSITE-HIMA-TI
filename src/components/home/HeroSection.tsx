@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
+import HalftoneBackground from "@/components/ui/HalftoneBackground";
 import gsap from "gsap";
 
 export default function HeroSection() {
@@ -57,15 +58,18 @@ export default function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24 bg-[#0A0A0A]"
+      className="relative min-h-screen flex items-center justify-center pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24 bg-[#0A0A0A] overflow-hidden"
     >
-      <Container size="xl" className="w-full">
+      {/* Halftone Canvas Background */}
+      <HalftoneBackground intensity="hero" className="z-0" />
+
+      <Container size="xl" className="w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Main Headline & CTAs */}
           <div className="lg:col-span-7 flex flex-col items-start">
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-[#F5F5F2] tracking-tight leading-[1.05] mb-6">
-              <span ref={headlineLine1Ref} className="block">Building Connections,</span>
-              <span ref={headlineLine2Ref} className="block text-[#F97316]">Creating Innovations.</span>
+              <span ref={headlineLine1Ref} className="block drop-shadow-sm">Building Connections,</span>
+              <span ref={headlineLine2Ref} className="block text-[#F97316] drop-shadow-sm">Creating Innovations.</span>
             </h1>
 
             <p
@@ -78,14 +82,14 @@ export default function HeroSection() {
             <div ref={ctaRef} className="flex flex-wrap items-center gap-4">
               <Link
                 href="/tentang"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#F97316] text-[#0A0A0A] font-bold text-sm tracking-wide uppercase hover:bg-[#EA580C] transition-all duration-200 active:scale-[0.98]"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#F97316] text-[#0A0A0A] font-bold text-sm tracking-wide uppercase hover:bg-[#EA580C] transition-all duration-200 active:scale-[0.98] shadow-lg shadow-[#F97316]/20"
               >
                 <span>Kenali HIMA-TI</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/program-kerja"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-[#333338] text-[#F5F5F2] font-semibold text-sm tracking-wide uppercase hover:border-[#F97316] hover:text-[#F97316] transition-all duration-200 active:scale-[0.98]"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-[#333338] bg-[#0A0A0A]/40 backdrop-blur-sm text-[#F5F5F2] font-semibold text-sm tracking-wide uppercase hover:border-[#F97316] hover:text-[#F97316] transition-all duration-200 active:scale-[0.98]"
               >
                 <span>Lihat Kegiatan</span>
               </Link>
@@ -94,7 +98,7 @@ export default function HeroSection() {
 
           {/* Official Emblem */}
           <div ref={logoRef} className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-48 h-56 sm:w-60 sm:h-68 lg:w-72 lg:h-80 transition-transform duration-300 hover:scale-105">
+            <div className="relative w-48 h-56 sm:w-60 sm:h-68 lg:w-72 lg:h-80 transition-transform duration-300 hover:scale-105 filter drop-shadow-2xl">
               <Image
                 src="/logo.svg"
                 alt="Logo Resmi HIMA-TI UIN Ar-Raniry"
@@ -109,4 +113,5 @@ export default function HeroSection() {
     </section>
   );
 }
+
 
