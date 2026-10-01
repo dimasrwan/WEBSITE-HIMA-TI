@@ -80,12 +80,11 @@ const SOCIAL_ITEMS = [
   },
 ];
 
-
 export default function Footer() {
   return (
     <footer className="bg-[#0A0A0A] border-t border-[#222225] pt-16 sm:pt-20 pb-12 mt-20 sm:mt-24">
       <Container size="xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-12 sm:pb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-10 pb-12 sm:pb-16">
           {/* Kolom 1: Identitas HIMA-TI (4 cols) */}
           <div className="lg:col-span-4 flex flex-col items-start">
             <Link href="/" className="flex items-center gap-3.5 group mb-4">
@@ -112,7 +111,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Kolom 2: Navigasi (2.5 cols -> 3 cols) */}
+          {/* Kolom 2: NAVIGASI (2.5 cols -> 3 cols) */}
           <div className="lg:col-span-3 flex flex-col">
             <span className="text-xs font-mono text-[#71717A] uppercase tracking-wider block mb-5 font-semibold">
               NAVIGASI
@@ -131,7 +130,39 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Kolom 3: Hubungi (3 cols) */}
+          {/* Kolom 3: MEDIA SOSIAL (2.5 cols -> 2 cols) */}
+          <div className="lg:col-span-2 flex flex-col">
+            <span className="text-xs font-mono text-[#71717A] uppercase tracking-wider block mb-5 font-semibold">
+              MEDIA SOSIAL
+            </span>
+            <ul className="space-y-3.5 text-sm">
+              {SOCIAL_ITEMS.map((item) => {
+                const IconComponent = item.icon;
+                return (
+                  <li key={item.name}>
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center gap-2.5 text-[#A1A1AA] hover:text-[#F97316] transition-colors"
+                    >
+                      <IconComponent className="w-4 h-4 text-[#F97316] shrink-0 transition-transform group-hover:scale-110" />
+                      <div className="flex flex-col">
+                        <span className="text-xs font-medium text-[#D4D4D8] group-hover:text-[#F97316] transition-colors">
+                          {item.name}
+                        </span>
+                        <span className="text-[11px] font-mono text-[#71717A] group-hover:text-[#F97316]/80 transition-colors">
+                          {item.username}
+                        </span>
+                      </div>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          {/* Kolom 4: HUBUNGI (3 cols) */}
           <div className="lg:col-span-3 flex flex-col">
             <span className="text-xs font-mono text-[#71717A] uppercase tracking-wider block mb-5 font-semibold">
               HUBUNGI
@@ -173,42 +204,10 @@ export default function Footer() {
               </div>
             </div>
           </div>
-
-          {/* Kolom 4: Media Sosial (2 cols) */}
-          <div className="lg:col-span-2 flex flex-col">
-            <span className="text-xs font-mono text-[#71717A] uppercase tracking-wider block mb-5 font-semibold">
-              MEDIA SOSIAL
-            </span>
-            <ul className="space-y-3.5 text-sm">
-              {SOCIAL_ITEMS.map((item) => {
-                const IconComponent = item.icon;
-                return (
-                  <li key={item.name}>
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group inline-flex items-center gap-2.5 text-[#A1A1AA] hover:text-[#F97316] transition-colors"
-                    >
-                      <IconComponent className="w-4 h-4 text-[#F97316] shrink-0 transition-transform group-hover:scale-110" />
-                      <div className="flex flex-col">
-                        <span className="text-xs font-medium text-[#D4D4D8] group-hover:text-[#F97316] transition-colors">
-                          {item.name}
-                        </span>
-                        <span className="text-[11px] font-mono text-[#71717A] group-hover:text-[#F97316]/80 transition-colors">
-                          {item.username}
-                        </span>
-                      </div>
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
         </div>
 
-        {/* Bagian Bawah: Copyright */}
-        <div className="pt-8 border-t border-[#222225]">
+        {/* Bagian Bawah: Copyright (Centered) */}
+        <div className="pt-8 border-t border-[#222225] flex items-center justify-center text-center">
           <p className="text-xs font-mono text-[#71717A]">
             © 2026 HIMA-TI FST UIN Ar-Raniry Banda Aceh.
           </p>
@@ -217,5 +216,6 @@ export default function Footer() {
     </footer>
   );
 }
+
 
 
