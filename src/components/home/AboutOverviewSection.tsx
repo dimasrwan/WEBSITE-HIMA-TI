@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useRef, useLayoutEffect } from "react";
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TransitionLink } from "@/components/layout/PageTransition";
 
 export default function AboutOverviewSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -53,13 +53,14 @@ export default function AboutOverviewSection() {
               Himpunan Mahasiswa Teknologi Informasi (HIMA-TI) Fakultas Sains dan Teknologi UIN Ar-Raniry Banda Aceh didirikan pada 13 September 2018 sebagai wadah pengembangan potensi softskill dan hardskill mahasiswa. Organisasi ini berstatus lembaga otonom yang aktif menggerakkan kajian ilmiah, inovasi, dan kebersamaan sivitas akademika.
             </p>
 
-            <Link
+            <TransitionLink
               href="/tentang"
+              title="Tentang HIMA-TI"
               className="inline-flex items-center gap-2 text-sm font-bold text-[#F97316] uppercase tracking-wider hover:text-[#EA580C] transition-colors group"
             >
               <span>Selengkapnya</span>
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
+            </TransitionLink>
           </div>
         </div>
       </Container>

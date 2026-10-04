@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useRef, useLayoutEffect } from "react";
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { DIVISIONS } from "@/data";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TransitionLink } from "@/components/layout/PageTransition";
 
 export default function OrganizationBriefSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -57,13 +57,14 @@ export default function OrganizationBriefSection() {
             <p className="text-base text-[#A1A1AA] leading-relaxed font-normal mb-6">
               Struktur organisasi HIMA-TI periode 2026/2027 terdiri dari Badan Pengurus Harian (BPH) dan 6 divisi kerja yang menghimpun 86 mahasiswa aktif Teknologi Informasi di bawah Surat Keputusan Dekan Fakultas Sains dan Teknologi UIN Ar-Raniry.
             </p>
-            <Link
+            <TransitionLink
               href="/kepengurusan"
+              title="Kepengurusan"
               className="inline-flex items-center gap-2 text-sm font-bold text-[#F97316] uppercase tracking-wider hover:text-[#EA580C] transition-colors group"
             >
               <span>Lihat Kepengurusan</span>
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
+            </TransitionLink>
           </div>
 
           {/* Right Column: Clean Editorial List of Divisions with interactive hover */}
@@ -76,19 +77,21 @@ export default function OrganizationBriefSection() {
                 key={div.id}
                 className="py-4 px-3 rounded-lg flex items-center justify-between group transition-all duration-300 hover:bg-[#111111]/70"
               >
-                <Link
+                <TransitionLink
                   href={`/kepengurusan#${div.id}`}
+                  title="Kepengurusan"
                   className="text-base sm:text-lg font-bold text-[#F5F5F2] group-hover:text-[#F97316] group-hover:translate-x-1.5 transition-all duration-300"
                 >
                   Divisi {div.name}
-                </Link>
-                <Link
+                </TransitionLink>
+                <TransitionLink
                   href={`/kepengurusan#${div.id}`}
+                  title="Kepengurusan"
                   className="inline-flex items-center gap-1 text-xs font-mono text-[#71717A] group-hover:text-[#F97316] transition-colors"
                 >
                   <span>Lihat</span>
                   <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </Link>
+                </TransitionLink>
               </div>
             ))}
           </div>

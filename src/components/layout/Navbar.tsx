@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { TransitionLink } from "@/components/layout/PageTransition";
 
 const NAV_LINKS = [
   { name: "Beranda", href: "/" },
@@ -62,8 +62,9 @@ export default function Navbar() {
       >
         <div className="flex items-center justify-between min-h-[48px]">
           {/* Logo Brand */}
-          <Link
+          <TransitionLink
             href="/"
+            title="Beranda"
             onClick={closeMobileMenu}
             className="flex items-center gap-3.5 group shrink-0"
           >
@@ -95,16 +96,17 @@ export default function Navbar() {
                 FST UIN Ar-Raniry
               </span>
             </div>
-          </Link>
+          </TransitionLink>
 
           {/* Desktop Nav Links (Centered) */}
           <nav className="hidden md:flex items-center gap-1 lg:gap-2">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
               return (
-                <Link
+                <TransitionLink
                   key={link.href}
                   href={link.href}
+                  title={link.name}
                   className={cn(
                     "text-[13px] lg:text-[14px] uppercase font-mono tracking-wider transition-all duration-300 px-3.5 py-1.5 rounded-lg relative whitespace-nowrap group",
                     isActive
@@ -116,15 +118,16 @@ export default function Navbar() {
                   {isActive && (
                     <span className="absolute bottom-0 left-3.5 right-3.5 h-[2px] bg-[#F97316] rounded-full shadow-[0_0_8px_rgba(249,115,22,0.8)]" />
                   )}
-                </Link>
+                </TransitionLink>
               );
             })}
           </nav>
 
           {/* Contact CTA Button (Right) */}
           <div className="hidden md:flex items-center shrink-0">
-            <Link
+            <TransitionLink
               href="/kontak"
+              title="Hubungi Kami"
               className={cn(
                 "inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider rounded-lg transition-all duration-300 group hover:-translate-y-0.5 active:translate-y-0",
                 isScrolled
@@ -137,7 +140,7 @@ export default function Navbar() {
             >
               <span>Hubungi Kami</span>
               <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
+            </TransitionLink>
           </div>
 
           {/* Mobile Hamburger Toggle */}
@@ -161,9 +164,10 @@ export default function Navbar() {
               {NAV_LINKS.map((link) => {
                 const isActive = pathname === link.href;
                 return (
-                  <Link
+                  <TransitionLink
                     key={link.href}
                     href={link.href}
+                    title={link.name}
                     onClick={closeMobileMenu}
                     className={cn(
                       "text-xs sm:text-sm uppercase font-mono tracking-wider py-1.5",
@@ -173,18 +177,19 @@ export default function Navbar() {
                     )}
                   >
                     {link.name}
-                  </Link>
+                  </TransitionLink>
                 );
               })}
               <div className="pt-3 mt-1 border-t border-[#222225]">
-                <Link
+                <TransitionLink
                   href="/kontak"
+                  title="Hubungi Kami"
                   onClick={closeMobileMenu}
                   className="flex items-center justify-between py-1.5 text-xs font-mono uppercase font-bold text-[#F97316]"
                 >
                   <span>Hubungi Kami</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
-                </Link>
+                </TransitionLink>
               </div>
             </div>
           </div>

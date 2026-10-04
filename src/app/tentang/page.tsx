@@ -2,7 +2,6 @@
 
 import React, { useRef, useLayoutEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import {
   ArrowUpRight,
   Layers,
@@ -14,6 +13,7 @@ import Container from "@/components/ui/Container";
 import { ORG_INFO } from "@/data";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TransitionLink } from "@/components/layout/PageTransition";
 
 const LOGO_ELEMENTS = [
   {
@@ -277,13 +277,14 @@ export default function TentangPage() {
                 Telusuri profil 86 fungsionaris pengurus HIMA-TI Periode 2026/2027.
               </p>
             </div>
-            <Link
+            <TransitionLink
               href="/kepengurusan"
+              title="Kepengurusan"
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#F97316] text-[#0A0A0A] text-xs font-mono uppercase tracking-wider font-bold rounded-lg hover:bg-[#EA580C] hover:shadow-lg hover:shadow-[#F97316]/25 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 shrink-0"
             >
               <span>Struktur Kepengurusan</span>
               <ArrowUpRight className="w-4 h-4" />
-            </Link>
+            </TransitionLink>
           </div>
         </section>
       </Container>

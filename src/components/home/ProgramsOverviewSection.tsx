@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useRef, useLayoutEffect } from "react";
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { PROGRAMS } from "@/data";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TransitionLink } from "@/components/layout/PageTransition";
 
 export default function ProgramsOverviewSection() {
   const selectedPrograms = PROGRAMS.slice(0, 3);
@@ -55,13 +55,14 @@ export default function ProgramsOverviewSection() {
             description="Program kerja pilihan yang dirancang untuk mendukung akselerasi potensi mahasiswa TI."
             className="mb-0"
           />
-          <Link
+          <TransitionLink
             href="/program-kerja"
+            title="Program Kerja"
             className="inline-flex items-center gap-2 text-sm font-bold text-[#F97316] uppercase tracking-wider hover:text-[#EA580C] transition-colors shrink-0 group"
           >
             <span>Lihat Semua Program</span>
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
+          </TransitionLink>
         </div>
 
         {/* Editorial Programs Grid with clean hover transitions */}
@@ -87,13 +88,14 @@ export default function ProgramsOverviewSection() {
 
               <div className="pt-4 border-t border-[#222225] flex items-center justify-between text-xs font-mono text-[#71717A]">
                 <span>{prog.period}</span>
-                <Link
+                <TransitionLink
                   href="/program-kerja"
+                  title="Program Kerja"
                   className="text-[#F5F5F2] group-hover:text-[#F97316] transition-colors inline-flex items-center gap-1 font-semibold group/btn"
                 >
                   <span>Detail</span>
                   <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                </Link>
+                </TransitionLink>
               </div>
             </div>
           ))}

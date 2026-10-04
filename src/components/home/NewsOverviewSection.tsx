@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useRef, useLayoutEffect } from "react";
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { NEWS } from "@/data";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TransitionLink } from "@/components/layout/PageTransition";
 
 export default function NewsOverviewSection() {
   const [featuredNews, ...otherNews] = NEWS;
@@ -63,13 +63,14 @@ export default function NewsOverviewSection() {
             description="Informasi dan pengumuman resmi seputar agenda organisasi dan kegiatan mahasiswa."
             className="mb-0"
           />
-          <Link
+          <TransitionLink
             href="/berita"
+            title="Warta Berita"
             className="inline-flex items-center gap-2 text-sm font-bold text-[#F97316] uppercase tracking-wider hover:text-[#EA580C] transition-colors shrink-0 group"
           >
             <span>Lihat Semua Berita</span>
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
+          </TransitionLink>
         </div>
 
         {/* Editorial News Layout with complete content fill */}
@@ -86,9 +87,9 @@ export default function NewsOverviewSection() {
               </div>
 
               <h3 className="text-2xl sm:text-3xl font-bold text-[#F5F5F2] group-hover:text-[#F97316] transition-colors leading-tight mb-4">
-                <Link href={`/berita/${featuredNews.slug}`}>
+                <TransitionLink href={`/berita/${featuredNews.slug}`} title="Warta Berita">
                   {featuredNews.title}
-                </Link>
+                </TransitionLink>
               </h3>
 
               <p className="text-base text-[#A1A1AA] leading-relaxed mb-6 font-normal">
@@ -98,13 +99,14 @@ export default function NewsOverviewSection() {
 
             <div className="pt-6 border-t border-[#222225] flex items-center justify-between text-xs font-mono text-[#71717A]">
               <span>{featuredNews.author}</span>
-              <Link
+              <TransitionLink
                 href={`/berita/${featuredNews.slug}`}
+                title="Warta Berita"
                 className="text-[#F5F5F2] group-hover:text-[#F97316] transition-colors inline-flex items-center gap-1 font-semibold group/btn"
               >
                 <span>Baca Selengkapnya</span>
                 <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-              </Link>
+              </TransitionLink>
             </div>
           </article>
 
@@ -122,9 +124,9 @@ export default function NewsOverviewSection() {
                   </div>
 
                   <h4 className="text-lg font-bold text-[#F5F5F2] group-hover:text-[#F97316] transition-colors leading-snug mb-2">
-                    <Link href={`/berita/${article.slug}`}>
+                    <TransitionLink href={`/berita/${article.slug}`} title="Warta Berita">
                       {article.title}
-                    </Link>
+                    </TransitionLink>
                   </h4>
 
                   <p className="text-sm text-[#A1A1AA] leading-relaxed line-clamp-2 mb-4 font-normal">
@@ -134,13 +136,14 @@ export default function NewsOverviewSection() {
 
                 <div className="pt-3 border-t border-[#222225] flex items-center justify-between text-xs font-mono text-[#71717A]">
                   <span>{article.author}</span>
-                  <Link
+                  <TransitionLink
                     href={`/berita/${article.slug}`}
+                    title="Warta Berita"
                     className="text-[#F5F5F2] group-hover:text-[#F97316] transition-colors inline-flex items-center gap-1 font-semibold group/btn"
                   >
                     <span>Baca</span>
                     <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                  </Link>
+                  </TransitionLink>
                 </div>
               </article>
             ))}

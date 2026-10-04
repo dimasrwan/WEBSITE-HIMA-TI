@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useRef, useLayoutEffect } from "react";
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TransitionLink } from "@/components/layout/PageTransition";
 
 export default function CTASection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -56,13 +56,14 @@ export default function CTASection() {
           </div>
 
           <div className="shrink-0 relative z-10">
-            <Link
+            <TransitionLink
               href="/kontak"
+              title="Hubungi Kami"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#F97316] text-[#0A0A0A] font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-[#EA580C] hover:shadow-lg hover:shadow-[#F97316]/30 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 group"
             >
               <span>Hubungi Kami</span>
               <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
+            </TransitionLink>
           </div>
         </div>
       </Container>

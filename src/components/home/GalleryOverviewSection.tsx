@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useRef, useLayoutEffect } from "react";
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { GALLERY_ITEMS } from "@/data";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TransitionLink } from "@/components/layout/PageTransition";
 
 export default function GalleryOverviewSection() {
   const [featuredGallery, ...otherGallery] = GALLERY_ITEMS;
@@ -55,13 +55,14 @@ export default function GalleryOverviewSection() {
             description="Dokumentasi rekam jejak aktivitas, musyawarah, dan agenda kemahasiswaan."
             className="mb-0"
           />
-          <Link
+          <TransitionLink
             href="/galeri"
+            title="Galeri Kegiatan"
             className="inline-flex items-center gap-2 text-sm font-bold text-[#F97316] uppercase tracking-wider hover:text-[#EA580C] transition-colors shrink-0 group"
           >
             <span>Lihat Semua Galeri</span>
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
+          </TransitionLink>
         </div>
 
         {/* Varied Gallery Grid: 1 Featured item (wide) + 2 standard items */}

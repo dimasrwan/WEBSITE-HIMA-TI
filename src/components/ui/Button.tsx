@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { LucideIcon } from "lucide-react";
+import { TransitionLink } from "@/components/layout/PageTransition";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "outline" | "ghost";
@@ -83,7 +83,7 @@ export default function Button({
 
   if (href) {
     return (
-      <Link
+      <TransitionLink
         href={href}
         ref={buttonRef as React.Ref<HTMLAnchorElement>}
         onMouseMove={handleMouseMove}
@@ -92,7 +92,7 @@ export default function Button({
         className={classes}
       >
         {content}
-      </Link>
+      </TransitionLink>
     );
   }
 

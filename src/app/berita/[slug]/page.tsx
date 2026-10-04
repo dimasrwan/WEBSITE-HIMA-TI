@@ -1,9 +1,9 @@
 import { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { NEWS } from "@/data";
+import { TransitionLink } from "@/components/layout/PageTransition";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -43,13 +43,14 @@ export default async function BeritaDetailPage({ params }: Props) {
     <div className="pt-36 pb-28 bg-transparent relative z-10">
       <Container size="md">
         {/* Back Link */}
-        <Link
+        <TransitionLink
           href="/berita"
+          title="Warta Berita"
           className="inline-flex items-center gap-2 text-xs font-mono uppercase text-[#71717A] hover:text-[#F97316] transition-colors mb-10 group"
         >
           <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1" />
           <span>Kembali ke Warta Berita</span>
-        </Link>
+        </TransitionLink>
 
         {/* Article Header */}
         <header className="pb-10 mb-12 border-b border-[#222225]">
@@ -91,13 +92,14 @@ export default async function BeritaDetailPage({ params }: Props) {
             ))}
           </div>
 
-          <Link
+          <TransitionLink
             href="/berita"
+            title="Warta Berita"
             className="text-[#F97316] hover:text-[#EA580C] uppercase tracking-wider font-semibold inline-flex items-center gap-1"
           >
             <span>Arsip Warta Lainnya</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
-          </Link>
+          </TransitionLink>
         </footer>
       </Container>
     </div>

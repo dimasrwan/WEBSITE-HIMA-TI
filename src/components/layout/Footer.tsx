@@ -1,9 +1,9 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { Mail, Phone, MapPin } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { ORG_INFO } from "@/data";
+import { TransitionLink } from "@/components/layout/PageTransition";
 
 const NAV_ITEMS = [
   { name: "Beranda", href: "/" },
@@ -88,7 +88,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 pb-14 sm:pb-16 items-start">
           {/* Kolom 1: Identitas HIMA-TI (4 cols) */}
           <div className="lg:col-span-4 flex flex-col items-start pr-0 lg:pr-4">
-            <Link href="/" className="flex items-center gap-3.5 group mb-5">
+            <TransitionLink href="/" title="Beranda" className="flex items-center gap-3.5 group mb-5">
               <div className="relative w-9 h-10 transition-transform duration-200 group-hover:scale-105 shrink-0">
                 <Image
                   src="/logo.svg"
@@ -105,7 +105,7 @@ export default function Footer() {
                   FST UIN Ar-Raniry Banda Aceh
                 </span>
               </div>
-            </Link>
+            </TransitionLink>
 
             <p className="text-sm text-[#A1A1AA] leading-relaxed max-w-sm font-normal">
               Himpunan Mahasiswa Teknologi Informasi Fakultas Sains dan Teknologi UIN Ar-Raniry Banda Aceh.
@@ -120,12 +120,13 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               {NAV_ITEMS.map((item) => (
                 <li key={item.href}>
-                  <Link
+                  <TransitionLink
                     href={item.href}
+                    title={item.name}
                     className="text-[#A1A1AA] hover:text-[#F97316] transition-colors inline-block"
                   >
                     {item.name}
-                  </Link>
+                  </TransitionLink>
                 </li>
               ))}
             </ul>

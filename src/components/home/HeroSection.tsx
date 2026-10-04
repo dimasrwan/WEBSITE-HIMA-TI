@@ -2,10 +2,10 @@
 
 import React, { useRef, useLayoutEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import gsap from "gsap";
+import { TransitionLink } from "@/components/layout/PageTransition";
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -99,19 +99,21 @@ export default function HeroSection() {
             </p>
 
             <div ref={ctaRef} className="flex flex-wrap items-center gap-4">
-              <Link
+              <TransitionLink
                 href="/tentang"
+                title="Tentang HIMA-TI"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#F97316] text-[#0A0A0A] font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-[#EA580C] hover:shadow-lg hover:shadow-[#F97316]/25 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 group"
               >
                 <span>Kenali HIMA-TI</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </Link>
-              <Link
+              </TransitionLink>
+              <TransitionLink
                 href="/program-kerja"
+                title="Program Kerja"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-[#333338] bg-[#111111]/60 backdrop-blur-sm text-[#F5F5F2] font-semibold text-sm tracking-wide uppercase rounded-lg hover:border-[#F97316] hover:text-[#F97316] hover:bg-[#F97316]/5 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
               >
                 <span>Lihat Kegiatan</span>
-              </Link>
+              </TransitionLink>
             </div>
           </div>
 
